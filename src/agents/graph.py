@@ -1,0 +1,80 @@
+from typing import Annotated
+from typing_extensions import TypedDict
+from langgraph.graph import StateGraph, END
+from langgraph.graph.message import add_messages
+from langgraph.prebuilt import ToolNode
+
+from .nodes import (
+    create_agent_node,
+    create_rewrite_node,
+    create_generate_node,
+)
+from .edges import create_grade_documents, route_after_agent
+
+
+# =========================
+# STATE (FIXED)
+# =========================
+class GraphState(TypedDict):
+    messages: Annotated[list, add_messages]
+    retrieved_docs: list   # 🔥 IMPORTANT FIX
+
+
+# =========================
+# BUILD GRAPH
+# =========================
+def build_graph(tools):
+    workflow = StateGraph(GraphState)
+
+    agent_node = create_agent_node(tools)
+    rewrite_node = create_rewrite_node()
+    generate_node = create_generate_node()
+    grade_documents_func = create_grade_documents()
+
+    tool_node = ToolNode(tools)
+
+
+    def retrieve_node(state):
+
+        result = tool_node.invoke(state)
+
+ 
+        last_msg = result["messages"][-1]
+
+        return {
+            "messages": result["messages"],
+           
+            "retrieved_docs": last_msg.artifact 
+        }
+    
+    
+
+    workflow.add_node("agent", agent_node)
+    workflow.add_node("retrieve", retrieve_node)
+    workflow.add_node("rewrite", rewrite_node)
+    workflow.add_node("generate", generate_node)
+
+    workflow.set_entry_point("agent")
+
+    workflow.add_conditional_edges(
+        "agent",
+        route_after_agent,
+        {
+            "retrieve": "retrieve",
+            "end": END
+        }
+    )
+
+    workflow.add_conditional_edges(
+        "retrieve",
+        grade_documents_func,
+        {
+            "generate": "generate",
+            "rewrite": "rewrite"
+        }
+    )
+
+    workflow.add_edge("rewrite", "agent")
+    workflow.add_edge("generate", END)
+
+    return workflow.compile()
