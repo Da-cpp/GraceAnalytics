@@ -104,8 +104,8 @@ function App() {
             <p className="text-xs font-black text-gray-900 leading-none">{profile.full_name}</p>
             <p className="text-[10px] text-grace-red font-bold uppercase">{profile.role}</p>
           </div>
-          <button onClick={() => supabase.auth.signOut()} className="bg-gray-900 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-black transition-all shadow-md">
-            <span className="text-[10px] font-bold">OUT</span>
+          <button onClick={() => supabase.auth.signOut()} className="bg-gray-900 text-white w-15 h-8 rounded flex items-center justify-center hover:bg-black transition-all shadow-md">
+            <span className="text-[10px] font-bold">Log Out</span>
           </button>
         </div>
       </header>
@@ -186,7 +186,7 @@ function App() {
                  <h2 className="text-4xl font-black text-gray-900 tracking-tighter">Administration</h2>
                  <p className="text-gray-500 font-medium">Review and authorize staff access requests.</p>
                </div>
-               <div className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-[10px] font-black text-gray-400 uppercase tracking-widest shadow-sm">
+               <div className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-[10px] font-black text-green-400 uppercase tracking-widest shadow-sm">
                  Security Level: High
                </div>
              </div>

@@ -1,37 +1,3 @@
-// import { useState } from 'react';
-// import { supabase } from '../supabaseClient';
-
-// export default function Auth() {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-//   const [fullName, setFullName] = useState('');
-
-//   const handleSignUp = async (e: React.FormEvent) => {
-//     e.preventDefault();
-//     const { error } = await supabase.auth.signUp({
-//       email,
-//       password,
-//       options: {
-//         data: { full_name: fullName } // This maps to the trigger we wrote earlier
-//       }
-//     });
-//     if (error) alert(error.message);
-//     else alert("Check your email! A manager will need to approve your account.");
-//   };
-
-//   return (
-//     <div className="max-w-md mx-auto mt-10 p-8 border-t-4 border-grace-red shadow-lg bg-white rounded">
-//       <h2 className="text-grace-red mb-6">Staff Access Request</h2>
-//       <form onSubmit={handleSignUp} className="flex flex-col gap-4">
-//         <input className="border p-2" type="text" placeholder="Full Name" onChange={e => setFullName(e.target.value)} />
-//         <input className="border p-2" type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} />
-//         <input className="border p-2" type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
-//         <button className="btn-primary">Request Access</button>
-//       </form>
-//     </div>
-//   );
-// }
-
 import { useState } from 'react';
 import { supabase } from '../supabaseClient';
 
@@ -40,87 +6,86 @@ export default function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
-  const [isSignUp, setIsSignUp] = useState(false); 
+  const [isSignUp, setIsSignUp] = useState(false);
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
     if (isSignUp) {
-      // request access / sign u[]
       const { error } = await supabase.auth.signUp({
         email,
         password,
-        options: {
-          data: {
-            full_name: fullName,
-          },
-        },
+        options: { data: { full_name: fullName } },
       });
-
-      if (error) {
-        alert(error.message);
-      } else {
-        alert('Access request submitted! Wait for manager approval.');
-      }
+      if (error) alert(error.message);
+      else alert('Request submitted! Approval required.');
     } else {
-      //exsiting users
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) alert(error.message);
     }
     setLoading(false);
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden border-t-8 border-[#E21F26]">
-        <div className="p-8">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-black text-[#E21F26] mb-2 uppercase">GraceApp</h1>
-            <p className="text-gray-500 text-sm font-bold tracking-widest uppercase">
-              {isSignUp ? 'Request Staff Access' : 'Secure Portal Login'}
+    <div className="flex flex-col items-center justify-center min-h-screen bg-slate-50 p-6 selection:bg-red-100">
+      <div className="w-full max-w-[400px] bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden">
+        
+        <div className="h-1.5 w-full bg-[#E21F26]" />
+
+        <div className="p-10">
+          <div className="mb-10">
+            <h1 className="text-2xl font-black tracking-tighter text-gray-900 flex items-center gap-2">
+              <span className="text-[#E21F26]">GK Analytics</span>
+              <span className="font-light text-gray-400">|</span> 
+              Portal
+            </h1>
+            <p className="text-gray-500 text-[13px] mt-1 font-medium">
+              {isSignUp ? 'Apply for staff credentials' : 'Sign in to your dashboard'}
             </p>
           </div>
 
-          <form onSubmit={handleAuth} className="space-y-4">
+          <form onSubmit={handleAuth} className="space-y-5">
             {isSignUp && (
-              <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Full Name</label>
+              <div className="group">
+                <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1.5 ml-1 transition-colors group-focus-within:text-[#E21F26]">
+                  Full Name
+                </label>
                 <input
                   type="text"
-                  placeholder="Enter your name"
+                  placeholder="John Doe"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#E21F26] outline-none transition-all text-black"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E21F26]/20 focus:border-[#E21F26] focus:bg-white outline-none transition-all text-sm"
                   required
                 />
               </div>
             )}
 
-            <div>
-              <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Corporate Email</label>
+            <div className="group">
+              <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1.5 ml-1 transition-colors group-focus-within:text-[#E21F26]">
+                Corporate Email
+              </label>
               <input
                 type="email"
-                placeholder="email@grace.com"
+                placeholder="name@grace.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#E21F26] outline-none transition-all text-black"
+                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E21F26]/20 focus:border-[#E21F26] focus:bg-white outline-none transition-all text-sm"
                 required
               />
             </div>
 
-            <div>
-              <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Password</label>
+            <div className="group">
+              <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1.5 ml-1 transition-colors group-focus-within:text-[#E21F26]">
+                Password
+              </label>
               <input
                 type="password"
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#E21F26] outline-none transition-all text-black"
+                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E21F26]/20 focus:border-[#E21F26] focus:bg-white outline-none transition-all text-sm"
                 required
               />
             </div>
@@ -128,27 +93,39 @@ export default function Auth() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#E21F26] text-white p-3 rounded-lg font-bold hover:bg-red-700 transition-all shadow-lg active:scale-95 disabled:opacity-50"
+              className="group relative w-full bg-[#E21F26] text-white py-3.5 rounded-xl font-bold text-sm tracking-wide hover:bg-red-700 transition-all shadow-md active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed overflow-hidden"
             >
-              {loading ? 'Processing...' : isSignUp ? 'SUBMIT REQUEST' : 'LOGIN'}
+              <span className={loading ? 'opacity-0' : 'opacity-100'}>
+                {isSignUp ? 'CREATE ACCOUNT' : 'LOG IN'}
+              </span>
+              
+              {loading && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                </div>
+              )}
             </button>
           </form>
 
-          <div className="mt-8 text-center border-t border-gray-100 pt-6">
-            <p className="text-sm text-gray-600">
-              {isSignUp ? 'Already have credentials?' : 'New GraceKennedy staff?'}
-              <button
-                type="button"
-                onClick={() => setIsSignUp(!isSignUp)}
-                className="ml-2 text-[#E21F26] font-bold hover:underline"
-              >
-                {isSignUp ? 'Log in here' : 'Request Access'}
-              </button>
-            </p>
+          <div className="mt-10 text-center">
+            <button
+              type="button"
+              onClick={() => setIsSignUp(!isSignUp)}
+              className="text-[13px] text-gray-400 font-medium hover:text-gray-600 transition-colors"
+            >
+              {isSignUp ? (
+                <>Already a member? <span className="text-[#E21F26] font-bold underline-offset-4 hover:underline">Log in</span></>
+              ) : (
+                <>New staff? <span className="text-[#E21F26] font-bold underline-offset-4 hover:underline">Request access</span></>
+              )}
+            </button>
           </div>
         </div>
-        <div className="bg-gray-50 p-4 text-center">
-          <p className="text-[10px] text-gray-400 font-mono">AUTHORIZED PERSONNEL ONLY - 2026 SYSTEMS</p>
+
+        <div className="bg-gray-50/50 py-4 border-t border-gray-100 text-center">
+          <p className="text-[9px] text-gray-400 font-bold uppercase tracking-[0.2em]">
+            256-bit Encrypted Security System
+          </p>
         </div>
       </div>
     </div>
