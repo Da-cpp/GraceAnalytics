@@ -1,13 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  /* global*/
   --color-grace-red: #E21F26;
   --color-grace-light: #F3F4F6;
   --color-grace-grey: #374151;
 }
 
-/* base styles cause there was a white on white issue */
 @layer base {
   body {
     background-color: var(--color-grace-light);
@@ -17,14 +15,14 @@
   }
 
   h1, h2, h3, h4 {
-    color: #111827; /* all headers have dark colours */
+    color: #111827; 
     font-weight: 800;
   }
 }
 
-/* custom components using theemes*/
 @layer components {
   .btn-primary {
+    /* Using the theme variable directly */
     background-color: var(--color-grace-red);
     color: white;
     padding: 0.5rem 1.5rem;
@@ -36,5 +34,43 @@
 
   .btn-primary:hover {
     filter: brightness(90%);
+  }
+
+  
+  .markdown-content h2 {
+    @apply text-xl font-extrabold mt-6 mb-3 text-gray-900 border-b border-gray-200 pb-1;
+  }
+  
+  .markdown-content h3 {
+    @apply text-lg font-bold mt-5 mb-2 text-[--color-grace-red];
+  }
+
+  .markdown-content p {
+    @apply text-sm leading-relaxed mb-4 text-gray-700;
+  }
+
+  .markdown-content ul, .markdown-content ol {
+    @apply ml-6 mb-4 space-y-2 text-sm;
+  }
+
+  .markdown-content ul {
+    @apply list-disc;
+  }
+
+  .markdown-content ol {
+    @apply list-decimal;
+  }
+
+  .markdown-content strong {
+    @apply font-black text-gray-950;
+  }
+
+  .markdown-content hr {
+    @apply my-8 border-t-2 border-gray-100;
+  }
+
+  /* Footnotes specific styling */
+  .markdown-content .sources-section {
+    @apply mt-8 pt-4 border-t border-gray-200 text-xs text-gray-500 italic;
   }
 }
