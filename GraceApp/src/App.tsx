@@ -3,7 +3,6 @@ import { supabase } from './supabaseClient';
 import Auth from './components/Auth';
 import ApprovalList from './components/ApprovalList';
 import ReactMarkdown from 'react-markdown';
-import GeospatialMetrics from './components/GeospatialMetrics';
 
 function App() {
   const [session, setSession] = useState<any>(null);
@@ -131,13 +130,6 @@ function App() {
               INTELLIGENCE
             </button>
 
-            {/* NEW METRICS TAB BUTTON */}
-            <button 
-              onClick={() => setActiveTab('metrics')}
-              className={`px-6 py-2 rounded-lg text-xs font-bold transition-all duration-300 ${activeTab === 'metrics' ? 'bg-white text-grace-red shadow-md scale-105' : 'text-gray-500 hover:text-gray-700'}`}
-            >
-              GEOSPATIAL METRICS
-            </button>
 
             {['manager', 'ceo'].includes(profile.role) && (
               <button 
@@ -286,9 +278,7 @@ function App() {
           </div>
         )}
 
-        {activeTab === 'metrics' && (
-          <GeospatialMetrics />
-        )}
+      
       </main>
 
       <footer className="p-6 text-center text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em]">
