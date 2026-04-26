@@ -1,0 +1,1274 @@
+[
+  {
+    "content": "Jamaica Market Penetration \u2014 Propensity Model Summary.\n\nThe propensity-to-buy model predicts the probability that a household in a given\nenumeration district (ED) will become a customer. It was trained using XGBoost\n(gradient boosted trees) with 5-fold stratified cross-validation.\n\nOverall market penetration for Jamaica: 0.2%\n(ratio of current customers to addressable market, aggregated across all 116 EDs).\n\nFeature importance ranking (what drives conversion likelihood):\n(1) competitor outlet density \u2014 importance 0.424; (2) log population density \u2014 importance 0.154; (3) payday sensitivity index \u2014 importance 0.082; (4) normalised proximity to nearest outlet \u2014 importance 0.081; (5) social influence proxy (income level + population density) \u2014 importance 0.072; (6) road accessibility score \u2014 importance 0.070.\n\nThe two strongest drivers are brand awareness and social influence \u2014 both are latent\nvariables estimated via observable proxies. This means the most effective market\npenetration levers are: (1) increasing outlet presence to build brand visibility,\nand (2) targeting high-density, higher-income communities first to trigger peer\nadoption effects.\n\nCompetitor density is the primary conversion suppressor. EDs with high competitor\ndensity require either a pricing or differentiation strategy before promotional spend.\n\nModel performance: CV AUC on training folds reflects discrimination ability between\nconverters and non-converters. SHAP values were computed on a representative subsample\nof 2,000 households.",
+    "metadata": {
+      "doc_type": "model_card",
+      "parish": "ALL",
+      "ed_id": "ALL"
+    }
+  },
+  {
+    "content": "St Andrew Parish \u2014 Market Penetration Summary.\n\nCurrent penetration index: 0.1% (0.0%\u20130.8% range across EDs).\nAverage opportunity score: 31518.621. Average priority score: 0.132.\nAverage propensity to buy: 0.1%.\n\nEnumeration district breakdown (12 total EDs):\n- Strike Now (high opportunity + high propensity): 10 EDs \u2014 push promotions here\n- Expand Access (high opportunity, low propensity): 0 EDs \u2014 distribution gaps\n- Retain (lower opportunity, high propensity): 2 EDs \u2014 loyalty focus\n- Deprioritise (low opportunity + low propensity): 0 EDs\n\nTop priority EDs: ST _000 (priority 0.322, Strike Now); ST _009 (priority 0.182, Strike Now); ST _008 (priority 0.180, Strike Now).\n\nDominant action quadrant: Strike Now.\nRecommended parish strategy: deploy targeted promotions and advertising immediately.\n\nIncome profile: average income index 0.52.\nRoad access: average score 0.29.\nCompetitor pressure: average density 6.54.",
+    "metadata": {
+      "doc_type": "parish_summary",
+      "parish": "St Andrew",
+      "ed_id": "ALL"
+    }
+  },
+  {
+    "content": "St Catherine Parish \u2014 Market Penetration Summary.\n\nCurrent penetration index: 0.2% (0.0%\u20131.3% range across EDs).\nAverage opportunity score: 18829.965. Average priority score: 0.112.\nAverage propensity to buy: 0.1%.\n\nEnumeration district breakdown (12 total EDs):\n- Strike Now (high opportunity + high propensity): 6 EDs \u2014 push promotions here\n- Expand Access (high opportunity, low propensity): 0 EDs \u2014 distribution gaps\n- Retain (lower opportunity, high propensity): 6 EDs \u2014 loyalty focus\n- Deprioritise (low opportunity + low propensity): 0 EDs\n\nTop priority EDs: ST _008 (priority 0.334, Strike Now); ST _005 (priority 0.203, Strike Now); ST _002 (priority 0.130, Strike Now).\n\nDominant action quadrant: Strike Now.\nRecommended parish strategy: deploy targeted promotions and advertising immediately.\n\nIncome profile: average income index 0.33.\nRoad access: average score 0.33.\nCompetitor pressure: average density 10.21.",
+    "metadata": {
+      "doc_type": "parish_summary",
+      "parish": "St Catherine",
+      "ed_id": "ALL"
+    }
+  },
+  {
+    "content": "St James Parish \u2014 Market Penetration Summary.\n\nCurrent penetration index: 0.4% (0.0%\u20132.5% range across EDs).\nAverage opportunity score: 7847.704. Average priority score: 0.028.\nAverage propensity to buy: 0.0%.\n\nEnumeration district breakdown (11 total EDs):\n- Strike Now (high opportunity + high propensity): 2 EDs \u2014 push promotions here\n- Expand Access (high opportunity, low propensity): 1 EDs \u2014 distribution gaps\n- Retain (lower opportunity, high propensity): 8 EDs \u2014 loyalty focus\n- Deprioritise (low opportunity + low propensity): 0 EDs\n\nTop priority EDs: ST _010 (priority 0.072, Retain); ST _002 (priority 0.065, Strike Now); ST _008 (priority 0.042, Strike Now).\n\nDominant action quadrant: Retain.\nRecommended parish strategy: focus on loyalty programmes and usage increase for existing customers.\n\nIncome profile: average income index 0.39.\nRoad access: average score 0.00.\nCompetitor pressure: average density 21.13.",
+    "metadata": {
+      "doc_type": "parish_summary",
+      "parish": "St James",
+      "ed_id": "ALL"
+    }
+  },
+  {
+    "content": "St Thomas Parish \u2014 Market Penetration Summary.\n\nCurrent penetration index: 1.0% (0.0%\u20136.3% range across EDs).\nAverage opportunity score: 2529.396. Average priority score: 0.022.\nAverage propensity to buy: 0.1%.\n\nEnumeration district breakdown (12 total EDs):\n- Strike Now (high opportunity + high propensity): 1 EDs \u2014 push promotions here\n- Expand Access (high opportunity, low propensity): 1 EDs \u2014 distribution gaps\n- Retain (lower opportunity, high propensity): 8 EDs \u2014 loyalty focus\n- Deprioritise (low opportunity + low propensity): 2 EDs\n\nTop priority EDs: ST _005 (priority 0.099, Retain); ST _011 (priority 0.040, Strike Now); ST _001 (priority 0.024, Retain).\n\nDominant action quadrant: Retain.\nRecommended parish strategy: focus on loyalty programmes and usage increase for existing customers.\n\nIncome profile: average income index 0.18.\nRoad access: average score 0.00.\nCompetitor pressure: average density 44.17.",
+    "metadata": {
+      "doc_type": "parish_summary",
+      "parish": "St Thomas",
+      "ed_id": "ALL"
+    }
+  },
+  {
+    "content": "Kingston Parish \u2014 Market Penetration Summary.\n\nCurrent penetration index: 0.0% (0.0%\u20130.0% range across EDs).\nAverage opportunity score: 3460.887. Average priority score: 0.021.\nAverage propensity to buy: 0.0%.\n\nEnumeration district breakdown (12 total EDs):\n- Strike Now (high opportunity + high propensity): 0 EDs \u2014 push promotions here\n- Expand Access (high opportunity, low propensity): 0 EDs \u2014 distribution gaps\n- Retain (lower opportunity, high propensity): 9 EDs \u2014 loyalty focus\n- Deprioritise (low opportunity + low propensity): 3 EDs\n\nTop priority EDs: KIN_002 (priority 0.043, Retain); KIN_008 (priority 0.040, Retain); KIN_009 (priority 0.034, Retain).\n\nDominant action quadrant: Retain.\nRecommended parish strategy: focus on loyalty programmes and usage increase for existing customers.\n\nIncome profile: average income index 0.53.\nRoad access: average score 0.30.\nCompetitor pressure: average density 40.00.",
+    "metadata": {
+      "doc_type": "parish_summary",
+      "parish": "Kingston",
+      "ed_id": "ALL"
+    }
+  },
+  {
+    "content": "Manchester Parish \u2014 Market Penetration Summary.\n\nCurrent penetration index: 0.0% (0.0%\u20130.0% range across EDs).\nAverage opportunity score: 15659.800. Average priority score: 0.021.\nAverage propensity to buy: 0.0%.\n\nEnumeration district breakdown (10 total EDs):\n- Strike Now (high opportunity + high propensity): 3 EDs \u2014 push promotions here\n- Expand Access (high opportunity, low propensity): 7 EDs \u2014 distribution gaps\n- Retain (lower opportunity, high propensity): 0 EDs \u2014 loyalty focus\n- Deprioritise (low opportunity + low propensity): 0 EDs\n\nTop priority EDs: MAN_008 (priority 0.038, Strike Now); MAN_005 (priority 0.038, Strike Now); MAN_006 (priority 0.032, Strike Now).\n\nDominant action quadrant: Expand Access.\nRecommended parish strategy: prioritise distribution expansion \u2014 open new outlets before promotional spend.\n\nIncome profile: average income index 0.35.\nRoad access: average score 0.00.\nCompetitor pressure: average density 0.00.",
+    "metadata": {
+      "doc_type": "parish_summary",
+      "parish": "Manchester",
+      "ed_id": "ALL"
+    }
+  },
+  {
+    "content": "Westmoreland Parish \u2014 Market Penetration Summary.\n\nCurrent penetration index: 0.0% (0.0%\u20130.0% range across EDs).\nAverage opportunity score: 12596.091. Average priority score: 0.019.\nAverage propensity to buy: 0.0%.\n\nEnumeration district breakdown (11 total EDs):\n- Strike Now (high opportunity + high propensity): 2 EDs \u2014 push promotions here\n- Expand Access (high opportunity, low propensity): 9 EDs \u2014 distribution gaps\n- Retain (lower opportunity, high propensity): 0 EDs \u2014 loyalty focus\n- Deprioritise (low opportunity + low propensity): 0 EDs\n\nTop priority EDs: WES_010 (priority 0.032, Strike Now); WES_002 (priority 0.031, Strike Now); WES_006 (priority 0.022, Expand Access).\n\nDominant action quadrant: Expand Access.\nRecommended parish strategy: prioritise distribution expansion \u2014 open new outlets before promotional spend.\n\nIncome profile: average income index 0.20.\nRoad access: average score 0.00.\nCompetitor pressure: average density 0.00.",
+    "metadata": {
+      "doc_type": "parish_summary",
+      "parish": "Westmoreland",
+      "ed_id": "ALL"
+    }
+  },
+  {
+    "content": "Portland Parish \u2014 Market Penetration Summary.\n\nCurrent penetration index: 0.0% (0.0%\u20130.0% range across EDs).\nAverage opportunity score: 7211.500. Average priority score: 0.011.\nAverage propensity to buy: 0.0%.\n\nEnumeration district breakdown (12 total EDs):\n- Strike Now (high opportunity + high propensity): 0 EDs \u2014 push promotions here\n- Expand Access (high opportunity, low propensity): 10 EDs \u2014 distribution gaps\n- Retain (lower opportunity, high propensity): 0 EDs \u2014 loyalty focus\n- Deprioritise (low opportunity + low propensity): 2 EDs\n\nTop priority EDs: POR_002 (priority 0.020, Expand Access); POR_008 (priority 0.015, Expand Access); POR_001 (priority 0.015, Deprioritise).\n\nDominant action quadrant: Expand Access.\nRecommended parish strategy: prioritise distribution expansion \u2014 open new outlets before promotional spend.\n\nIncome profile: average income index 0.19.\nRoad access: average score 0.00.\nCompetitor pressure: average density 0.00.",
+    "metadata": {
+      "doc_type": "parish_summary",
+      "parish": "Portland",
+      "ed_id": "ALL"
+    }
+  },
+  {
+    "content": "Hanover Parish \u2014 Market Penetration Summary.\n\nCurrent penetration index: 0.0% (0.0%\u20130.0% range across EDs).\nAverage opportunity score: 5715.833. Average priority score: 0.010.\nAverage propensity to buy: 0.0%.\n\nEnumeration district breakdown (12 total EDs):\n- Strike Now (high opportunity + high propensity): 0 EDs \u2014 push promotions here\n- Expand Access (high opportunity, low propensity): 1 EDs \u2014 distribution gaps\n- Retain (lower opportunity, high propensity): 0 EDs \u2014 loyalty focus\n- Deprioritise (low opportunity + low propensity): 11 EDs\n\nTop priority EDs: HAN_002 (priority 0.020, Deprioritise); HAN_008 (priority 0.017, Deprioritise); HAN_003 (priority 0.017, Deprioritise).\n\nDominant action quadrant: Deprioritise.\nRecommended parish strategy: hold \u2014 reallocate budget to higher-priority parishes.\n\nIncome profile: average income index 0.21.\nRoad access: average score 0.00.\nCompetitor pressure: average density 0.00.",
+    "metadata": {
+      "doc_type": "parish_summary",
+      "parish": "Hanover",
+      "ed_id": "ALL"
+    }
+  },
+  {
+    "content": "Trelawny Parish \u2014 Market Penetration Summary.\n\nCurrent penetration index: 0.0% (0.0%\u20130.0% range across EDs).\nAverage opportunity score: 6496.583. Average priority score: 0.008.\nAverage propensity to buy: 0.0%.\n\nEnumeration district breakdown (12 total EDs):\n- Strike Now (high opportunity + high propensity): 0 EDs \u2014 push promotions here\n- Expand Access (high opportunity, low propensity): 5 EDs \u2014 distribution gaps\n- Retain (lower opportunity, high propensity): 1 EDs \u2014 loyalty focus\n- Deprioritise (low opportunity + low propensity): 6 EDs\n\nTop priority EDs: TRE_007 (priority 0.022, Retain); TRE_008 (priority 0.011, Deprioritise); TRE_001 (priority 0.010, Expand Access).\n\nDominant action quadrant: Deprioritise.\nRecommended parish strategy: hold \u2014 reallocate budget to higher-priority parishes.\n\nIncome profile: average income index 0.19.\nRoad access: average score 0.00.\nCompetitor pressure: average density 0.00.",
+    "metadata": {
+      "doc_type": "parish_summary",
+      "parish": "Trelawny",
+      "ed_id": "ALL"
+    }
+  },
+  {
+    "content": "Enumeration District ST _008 \u2014 St Andrew Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 19,802 residents per sq km density.\n\nScores:\n- Opportunity score: 73682.000 (normalised: 1.000)\n- Propensity to buy: 0.000 (normalised: 0.032)\n- Combined priority score: 0.180\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (1.00) and propensity (0.03) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.25) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.25, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.36,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _008: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Andrew",
+      "ed_id": "ST _008",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.1795
+    }
+  },
+  {
+    "content": "Enumeration District ST _011 \u2014 St Andrew Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 183,583 residents per sq km density.\n\nScores:\n- Opportunity score: 72207.000 (normalised: 0.980)\n- Propensity to buy: 0.000 (normalised: 0.015)\n- Combined priority score: 0.122\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.98) and propensity (0.02) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.23) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.23, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.26,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _011: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Andrew",
+      "ed_id": "ST _011",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.1219
+    }
+  },
+  {
+    "content": "Enumeration District ST _000 \u2014 St Andrew Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 5,572 residents per sq km density.\n\nScores:\n- Opportunity score: 67459.000 (normalised: 0.916)\n- Propensity to buy: 0.001 (normalised: 0.114)\n- Combined priority score: 0.322\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.92) and propensity (0.11) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.54) \u2014 price sensitivity is a factor; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.54, road score: 0.42,\ncompetitor density: 0.00, payday index: 0.38,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _000: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Andrew",
+      "ed_id": "ST _000",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.3224
+    }
+  },
+  {
+    "content": "Enumeration District ST _002 \u2014 St Andrew Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,764 residents per sq km density.\n\nScores:\n- Opportunity score: 64830.000 (normalised: 0.880)\n- Propensity to buy: 0.000 (normalised: 0.032)\n- Combined priority score: 0.168\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.88) and propensity (0.03) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: poor road access (score 0.19) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.64, road score: 0.19,\ncompetitor density: 0.00, payday index: 0.41,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _002: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Andrew",
+      "ed_id": "ST _002",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.1685
+    }
+  },
+  {
+    "content": "Enumeration District ST _000 \u2014 St Catherine Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,289 residents per sq km density.\n\nScores:\n- Opportunity score: 50424.000 (normalised: 0.684)\n- Propensity to buy: 0.000 (normalised: 0.020)\n- Combined priority score: 0.117\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.68) and propensity (0.02) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.28) \u2014 price sensitivity is a factor; poor road access (score 0.30) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.28, road score: 0.30,\ncompetitor density: 0.00, payday index: 0.30,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _000: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Catherine",
+      "ed_id": "ST _000",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.1174
+    }
+  },
+  {
+    "content": "Enumeration District ST _011 \u2014 St Catherine Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,087 residents per sq km density.\n\nScores:\n- Opportunity score: 49190.000 (normalised: 0.668)\n- Propensity to buy: 0.000 (normalised: 0.008)\n- Combined priority score: 0.073\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.67) and propensity (0.01) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.39) \u2014 price sensitivity is a factor; poor road access (score 0.04) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.39, road score: 0.04,\ncompetitor density: 0.00, payday index: 0.34,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _011: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Catherine",
+      "ed_id": "ST _011",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.0727
+    }
+  },
+  {
+    "content": "Enumeration District ST _002 \u2014 St Catherine Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 574 residents per sq km density.\n\nScores:\n- Opportunity score: 43739.000 (normalised: 0.594)\n- Propensity to buy: 0.000 (normalised: 0.028)\n- Combined priority score: 0.130\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.59) and propensity (0.03) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.10) \u2014 price sensitivity is a factor; poor road access (score 0.22) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.10, road score: 0.22,\ncompetitor density: 0.00, payday index: 0.24,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _002: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Catherine",
+      "ed_id": "ST _002",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.13
+    }
+  },
+  {
+    "content": "Enumeration District ST _008 \u2014 St Catherine Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 290 residents per sq km density.\n\nScores:\n- Opportunity score: 41121.000 (normalised: 0.558)\n- Propensity to buy: 0.002 (normalised: 0.200)\n- Combined priority score: 0.334\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.56) and propensity (0.20) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.21) \u2014 price sensitivity is a factor; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.21, road score: 0.53,\ncompetitor density: 0.00, payday index: 0.23,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _008: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Catherine",
+      "ed_id": "ST _008",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.3337
+    }
+  },
+  {
+    "content": "Enumeration District ST _005 \u2014 St Andrew Parish.\n\nMarket penetration index: 0.8%.\nED status classification: Underserved.\nPopulation: approximately 1,411 residents per sq km density.\n\nScores:\n- Opportunity score: 28260.034 (normalised: 0.383)\n- Propensity to buy: 0.000 (normalised: 0.036)\n- Combined priority score: 0.117\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.38) and propensity (0.04) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: poor road access (score 0.32) limits product reach; high competitor density (1.44) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 1.00, road score: 0.32,\ncompetitor density: 1.44, payday index: 0.36,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _005: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Andrew",
+      "ed_id": "ST _005",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.1174
+    }
+  },
+  {
+    "content": "Enumeration District ST _000 \u2014 St James Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 2,584,000 residents per sq km density.\n\nScores:\n- Opportunity score: 25840.000 (normalised: 0.351)\n- Propensity to buy: 0.000 (normalised: 0.002)\n- Combined priority score: 0.024\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.35) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.45) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.45, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.18,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _000: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St James",
+      "ed_id": "ST _000",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0238
+    }
+  },
+  {
+    "content": "Enumeration District ST _010 \u2014 St Andrew Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,617 residents per sq km density.\n\nScores:\n- Opportunity score: 24468.889 (normalised: 0.332)\n- Propensity to buy: 0.000 (normalised: 0.046)\n- Combined priority score: 0.124\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.33) and propensity (0.05) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: poor road access (score 0.00) limits product reach; high competitor density (1.58) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.65, road score: 0.00,\ncompetitor density: 1.58, payday index: 0.46,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _010: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Andrew",
+      "ed_id": "ST _010",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.1239
+    }
+  },
+  {
+    "content": "Enumeration District ST _002 \u2014 St James Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 2,401,100 residents per sq km density.\n\nScores:\n- Opportunity score: 24011.000 (normalised: 0.326)\n- Propensity to buy: 0.000 (normalised: 0.013)\n- Combined priority score: 0.065\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.33) and propensity (0.01) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.25) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.25, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.26,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _002: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St James",
+      "ed_id": "ST _002",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.0652
+    }
+  },
+  {
+    "content": "Enumeration District ST _008 \u2014 St James Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 2,295,100 residents per sq km density.\n\nScores:\n- Opportunity score: 22951.000 (normalised: 0.311)\n- Propensity to buy: 0.000 (normalised: 0.006)\n- Combined priority score: 0.042\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.31) and propensity (0.01) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.86, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.11,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _008: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St James",
+      "ed_id": "ST _008",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.0416
+    }
+  },
+  {
+    "content": "Enumeration District MAN_000 \u2014 Manchester Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,869,700 residents per sq km density.\n\nScores:\n- Opportunity score: 18697.000 (normalised: 0.254)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.011\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.25) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.28) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.88) increases brand exposure.\n\nFeature values \u2014 income index: 0.28, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.17,\noutlet proximity (normalised): 0.88.\n\nRecommended market penetration action for MAN_000: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Manchester",
+      "ed_id": "MAN_000",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0113
+    }
+  },
+  {
+    "content": "Enumeration District MAN_002 \u2014 Manchester Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,763,400 residents per sq km density.\n\nScores:\n- Opportunity score: 17634.000 (normalised: 0.239)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.015\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.24) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.40) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.88) increases brand exposure.\n\nFeature values \u2014 income index: 0.40, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.21,\noutlet proximity (normalised): 0.88.\n\nRecommended market penetration action for MAN_002: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Manchester",
+      "ed_id": "MAN_002",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0146
+    }
+  },
+  {
+    "content": "Enumeration District MAN_005 \u2014 Manchester Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,694,700 residents per sq km density.\n\nScores:\n- Opportunity score: 16947.000 (normalised: 0.230)\n- Propensity to buy: 0.000 (normalised: 0.006)\n- Combined priority score: 0.038\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.23) and propensity (0.01) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.22) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.88) increases brand exposure.\n\nFeature values \u2014 income index: 0.22, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.09,\noutlet proximity (normalised): 0.88.\n\nRecommended market penetration action for MAN_005: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Manchester",
+      "ed_id": "MAN_005",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.0377
+    }
+  },
+  {
+    "content": "Enumeration District MAN_006 \u2014 Manchester Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,623,000 residents per sq km density.\n\nScores:\n- Opportunity score: 16230.000 (normalised: 0.220)\n- Propensity to buy: 0.000 (normalised: 0.005)\n- Combined priority score: 0.032\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.22) and propensity (0.00) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.20) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.88) increases brand exposure.\n\nFeature values \u2014 income index: 0.20, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.25,\noutlet proximity (normalised): 0.88.\n\nRecommended market penetration action for MAN_006: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Manchester",
+      "ed_id": "MAN_006",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.0316
+    }
+  },
+  {
+    "content": "Enumeration District MAN_004 \u2014 Manchester Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,561,000 residents per sq km density.\n\nScores:\n- Opportunity score: 15610.000 (normalised: 0.212)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.016\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.21) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.23) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.88) increases brand exposure.\n\nFeature values \u2014 income index: 0.23, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.16,\noutlet proximity (normalised): 0.88.\n\nRecommended market penetration action for MAN_004: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Manchester",
+      "ed_id": "MAN_004",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0159
+    }
+  },
+  {
+    "content": "Enumeration District MAN_003 \u2014 Manchester Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,558,300 residents per sq km density.\n\nScores:\n- Opportunity score: 15583.000 (normalised: 0.211)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.012\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.21) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.35) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.88) increases brand exposure.\n\nFeature values \u2014 income index: 0.35, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.13,\noutlet proximity (normalised): 0.88.\n\nRecommended market penetration action for MAN_003: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Manchester",
+      "ed_id": "MAN_003",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0117
+    }
+  },
+  {
+    "content": "Enumeration District MAN_007 \u2014 Manchester Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,553,500 residents per sq km density.\n\nScores:\n- Opportunity score: 15535.000 (normalised: 0.211)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.013\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.21) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.55) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.88) increases brand exposure.\n\nFeature values \u2014 income index: 0.55, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.17,\noutlet proximity (normalised): 0.88.\n\nRecommended market penetration action for MAN_007: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Manchester",
+      "ed_id": "MAN_007",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0127
+    }
+  },
+  {
+    "content": "Enumeration District ST _009 \u2014 St Andrew Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,963 residents per sq km density.\n\nScores:\n- Opportunity score: 14447.838 (normalised: 0.196)\n- Propensity to buy: 0.002 (normalised: 0.170)\n- Combined priority score: 0.182\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.20) and propensity (0.17) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: poor road access (score 0.05) limits product reach; high competitor density (4.79) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.72, road score: 0.05,\ncompetitor density: 4.79, payday index: 0.30,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _009: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Andrew",
+      "ed_id": "ST _009",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.1824
+    }
+  },
+  {
+    "content": "Enumeration District WES_009 \u2014 Westmoreland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,433,000 residents per sq km density.\n\nScores:\n- Opportunity score: 14330.000 (normalised: 0.194)\n- Propensity to buy: 0.000 (normalised: 0.002)\n- Combined priority score: 0.018\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.19) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.19) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.00) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.19, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.17,\noutlet proximity (normalised): 0.00.\n\nRecommended market penetration action for WES_009: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Westmoreland",
+      "ed_id": "WES_009",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0184
+    }
+  },
+  {
+    "content": "Enumeration District WES_003 \u2014 Westmoreland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,428,400 residents per sq km density.\n\nScores:\n- Opportunity score: 14284.000 (normalised: 0.194)\n- Propensity to buy: 0.000 (normalised: 0.002)\n- Combined priority score: 0.018\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.19) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.15) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.00) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.15, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.14,\noutlet proximity (normalised): 0.00.\n\nRecommended market penetration action for WES_003: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Westmoreland",
+      "ed_id": "WES_003",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0184
+    }
+  },
+  {
+    "content": "Enumeration District WES_010 \u2014 Westmoreland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,423,400 residents per sq km density.\n\nScores:\n- Opportunity score: 14234.000 (normalised: 0.193)\n- Propensity to buy: 0.000 (normalised: 0.005)\n- Combined priority score: 0.032\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.19) and propensity (0.01) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.17) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.00) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.17, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.10,\noutlet proximity (normalised): 0.00.\n\nRecommended market penetration action for WES_010: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Westmoreland",
+      "ed_id": "WES_010",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.0322
+    }
+  },
+  {
+    "content": "Enumeration District MAN_001 \u2014 Manchester Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,402,700 residents per sq km density.\n\nScores:\n- Opportunity score: 14027.000 (normalised: 0.190)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.016\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.19) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.24) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.88) increases brand exposure.\n\nFeature values \u2014 income index: 0.24, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.14,\noutlet proximity (normalised): 0.88.\n\nRecommended market penetration action for MAN_001: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Manchester",
+      "ed_id": "MAN_001",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.016
+    }
+  },
+  {
+    "content": "Enumeration District MAN_009 \u2014 Manchester Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,346,000 residents per sq km density.\n\nScores:\n- Opportunity score: 13460.000 (normalised: 0.183)\n- Propensity to buy: 0.000 (normalised: 0.002)\n- Combined priority score: 0.017\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.18) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.27) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.88) increases brand exposure.\n\nFeature values \u2014 income index: 0.27, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.19,\noutlet proximity (normalised): 0.88.\n\nRecommended market penetration action for MAN_009: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Manchester",
+      "ed_id": "MAN_009",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.017
+    }
+  },
+  {
+    "content": "Enumeration District ST _001 \u2014 St Andrew Parish.\n\nMarket penetration index: 0.3%.\nED status classification: Underserved.\nPopulation: approximately 1,066 residents per sq km density.\n\nScores:\n- Opportunity score: 13216.303 (normalised: 0.179)\n- Propensity to buy: 0.001 (normalised: 0.054)\n- Combined priority score: 0.099\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.18) and propensity (0.05) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.37) \u2014 price sensitivity is a factor; poor road access (score 0.33) limits product reach; high competitor density (3.42) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.37, road score: 0.33,\ncompetitor density: 3.42, payday index: 0.29,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _001: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Andrew",
+      "ed_id": "ST _001",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.0988
+    }
+  },
+  {
+    "content": "Enumeration District WES_000 \u2014 Westmoreland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,309,500 residents per sq km density.\n\nScores:\n- Opportunity score: 13095.000 (normalised: 0.178)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.010\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.18) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.30) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.00) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.30, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.13,\noutlet proximity (normalised): 0.00.\n\nRecommended market penetration action for WES_000: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Westmoreland",
+      "ed_id": "WES_000",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.01
+    }
+  },
+  {
+    "content": "Enumeration District WES_002 \u2014 Westmoreland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,303,100 residents per sq km density.\n\nScores:\n- Opportunity score: 13031.000 (normalised: 0.177)\n- Propensity to buy: 0.000 (normalised: 0.005)\n- Combined priority score: 0.031\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.18) and propensity (0.01) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.15) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.00) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.15, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.08,\noutlet proximity (normalised): 0.00.\n\nRecommended market penetration action for WES_002: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Westmoreland",
+      "ed_id": "WES_002",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.0307
+    }
+  },
+  {
+    "content": "Enumeration District WES_004 \u2014 Westmoreland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,296,700 residents per sq km density.\n\nScores:\n- Opportunity score: 12967.000 (normalised: 0.176)\n- Propensity to buy: 0.000 (normalised: 0.002)\n- Combined priority score: 0.018\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.18) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.16) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.00) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.16, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.14,\noutlet proximity (normalised): 0.00.\n\nRecommended market penetration action for WES_004: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Westmoreland",
+      "ed_id": "WES_004",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0182
+    }
+  },
+  {
+    "content": "Enumeration District MAN_008 \u2014 Manchester Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,287,500 residents per sq km density.\n\nScores:\n- Opportunity score: 12875.000 (normalised: 0.175)\n- Propensity to buy: 0.000 (normalised: 0.008)\n- Combined priority score: 0.038\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.17) and propensity (0.01) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.88) increases brand exposure.\n\nFeature values \u2014 income index: 0.73, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.23,\noutlet proximity (normalised): 0.88.\n\nRecommended market penetration action for MAN_008: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Manchester",
+      "ed_id": "MAN_008",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.0384
+    }
+  },
+  {
+    "content": "Enumeration District ST _005 \u2014 St Catherine Parish.\n\nMarket penetration index: 1.3%.\nED status classification: Underserved.\nPopulation: approximately 424 residents per sq km density.\n\nScores:\n- Opportunity score: 12652.984 (normalised: 0.172)\n- Propensity to buy: 0.002 (normalised: 0.240)\n- Combined priority score: 0.203\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.17) and propensity (0.24) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.10) \u2014 price sensitivity is a factor; high competitor density (2.34) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.10, road score: 0.44,\ncompetitor density: 2.34, payday index: 0.24,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _005: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Catherine",
+      "ed_id": "ST _005",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.2028
+    }
+  },
+  {
+    "content": "Enumeration District WES_007 \u2014 Westmoreland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,253,000 residents per sq km density.\n\nScores:\n- Opportunity score: 12530.000 (normalised: 0.170)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.011\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.17) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.28) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.00) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.28, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.13,\noutlet proximity (normalised): 0.00.\n\nRecommended market penetration action for WES_007: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Westmoreland",
+      "ed_id": "WES_007",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.011
+    }
+  },
+  {
+    "content": "Enumeration District WES_001 \u2014 Westmoreland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,220,100 residents per sq km density.\n\nScores:\n- Opportunity score: 12201.000 (normalised: 0.165)\n- Propensity to buy: 0.000 (normalised: 0.002)\n- Combined priority score: 0.017\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.17) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.27) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.00) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.27, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.14,\noutlet proximity (normalised): 0.00.\n\nRecommended market penetration action for WES_001: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Westmoreland",
+      "ed_id": "WES_001",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0169
+    }
+  },
+  {
+    "content": "Enumeration District ST _010 \u2014 St Catherine Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 394 residents per sq km density.\n\nScores:\n- Opportunity score: 11925.962 (normalised: 0.162)\n- Propensity to buy: 0.001 (normalised: 0.052)\n- Combined priority score: 0.092\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.16) and propensity (0.05) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.34) \u2014 price sensitivity is a factor; high competitor density (2.44) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.34, road score: 0.45,\ncompetitor density: 2.44, payday index: 0.30,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _010: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Catherine",
+      "ed_id": "ST _010",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.0918
+    }
+  },
+  {
+    "content": "Enumeration District WES_006 \u2014 Westmoreland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,115,900 residents per sq km density.\n\nScores:\n- Opportunity score: 11159.000 (normalised: 0.151)\n- Propensity to buy: 0.000 (normalised: 0.003)\n- Combined priority score: 0.022\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.15) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.13) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.00) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.13, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.16,\noutlet proximity (normalised): 0.00.\n\nRecommended market penetration action for WES_006: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Westmoreland",
+      "ed_id": "WES_006",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.022
+    }
+  },
+  {
+    "content": "Enumeration District WES_008 \u2014 Westmoreland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,080,300 residents per sq km density.\n\nScores:\n- Opportunity score: 10803.000 (normalised: 0.147)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.012\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.15) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.36) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.00) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.36, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.15,\noutlet proximity (normalised): 0.00.\n\nRecommended market penetration action for WES_008: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Westmoreland",
+      "ed_id": "WES_008",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0125
+    }
+  },
+  {
+    "content": "Enumeration District WES_005 \u2014 Westmoreland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 992,300 residents per sq km density.\n\nScores:\n- Opportunity score: 9923.000 (normalised: 0.135)\n- Propensity to buy: 0.000 (normalised: 0.002)\n- Combined priority score: 0.016\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.13) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.03) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.00) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.03, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.14,\noutlet proximity (normalised): 0.00.\n\nRecommended market penetration action for WES_005: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Westmoreland",
+      "ed_id": "WES_005",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0164
+    }
+  },
+  {
+    "content": "Enumeration District POR_011 \u2014 Portland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 803,300 residents per sq km density.\n\nScores:\n- Opportunity score: 8033.000 (normalised: 0.109)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.010\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.11) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.31) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.07) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.31, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.06,\noutlet proximity (normalised): 0.07.\n\nRecommended market penetration action for POR_011: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Portland",
+      "ed_id": "POR_011",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0099
+    }
+  },
+  {
+    "content": "Enumeration District POR_008 \u2014 Portland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 789,100 residents per sq km density.\n\nScores:\n- Opportunity score: 7891.000 (normalised: 0.107)\n- Propensity to buy: 0.000 (normalised: 0.002)\n- Combined priority score: 0.015\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.11) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.24) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.07) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.24, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.05,\noutlet proximity (normalised): 0.07.\n\nRecommended market penetration action for POR_008: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Portland",
+      "ed_id": "POR_008",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0153
+    }
+  },
+  {
+    "content": "Enumeration District ST _003 \u2014 St Andrew Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 2,807 residents per sq km density.\n\nScores:\n- Opportunity score: 7701.418 (normalised: 0.104)\n- Propensity to buy: 0.001 (normalised: 0.084)\n- Combined priority score: 0.093\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.10) and propensity (0.08) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.49) \u2014 price sensitivity is a factor; strong road access (score 1.00) means the product is physically reachable; high competitor density (9.70) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.49, road score: 1.00,\ncompetitor density: 9.70, payday index: 0.29,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _003: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Andrew",
+      "ed_id": "ST _003",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.0935
+    }
+  },
+  {
+    "content": "Enumeration District ST _011 \u2014 St Thomas Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 768,700 residents per sq km density.\n\nScores:\n- Opportunity score: 7687.000 (normalised: 0.104)\n- Propensity to buy: 0.000 (normalised: 0.016)\n- Combined priority score: 0.040\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.10) and propensity (0.02) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.13) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.13, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.29,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _011: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Thomas",
+      "ed_id": "ST _011",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.0404
+    }
+  },
+  {
+    "content": "Enumeration District POR_010 \u2014 Portland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 765,400 residents per sq km density.\n\nScores:\n- Opportunity score: 7654.000 (normalised: 0.104)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.012\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.10) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.01) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.07) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.01, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.13,\noutlet proximity (normalised): 0.07.\n\nRecommended market penetration action for POR_010: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Portland",
+      "ed_id": "POR_010",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0119
+    }
+  },
+  {
+    "content": "Enumeration District POR_004 \u2014 Portland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 764,300 residents per sq km density.\n\nScores:\n- Opportunity score: 7643.000 (normalised: 0.104)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.010\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.10) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.30) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.07) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.30, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.09,\noutlet proximity (normalised): 0.07.\n\nRecommended market penetration action for POR_004: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Portland",
+      "ed_id": "POR_004",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0097
+    }
+  },
+  {
+    "content": "Enumeration District POR_007 \u2014 Portland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 759,300 residents per sq km density.\n\nScores:\n- Opportunity score: 7593.000 (normalised: 0.103)\n- Propensity to buy: 0.000 (normalised: 0.000)\n- Combined priority score: 0.004\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.10) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.29) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.07) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.29, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.15,\noutlet proximity (normalised): 0.07.\n\nRecommended market penetration action for POR_007: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Portland",
+      "ed_id": "POR_007",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0042
+    }
+  },
+  {
+    "content": "Enumeration District POR_003 \u2014 Portland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 758,400 residents per sq km density.\n\nScores:\n- Opportunity score: 7584.000 (normalised: 0.103)\n- Propensity to buy: 0.000 (normalised: 0.000)\n- Combined priority score: 0.005\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.10) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.29) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.07) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.29, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.12,\noutlet proximity (normalised): 0.07.\n\nRecommended market penetration action for POR_003: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Portland",
+      "ed_id": "POR_003",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.005
+    }
+  },
+  {
+    "content": "Enumeration District TRE_011 \u2014 Trelawny Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 745,200 residents per sq km density.\n\nScores:\n- Opportunity score: 7452.000 (normalised: 0.101)\n- Propensity to buy: 0.000 (normalised: 0.000)\n- Combined priority score: 0.006\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.10) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.16) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.16, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.15,\noutlet proximity (normalised): 0.36.\n\nRecommended market penetration action for TRE_011: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Trelawny",
+      "ed_id": "TRE_011",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0061
+    }
+  },
+  {
+    "content": "Enumeration District POR_009 \u2014 Portland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 731,100 residents per sq km density.\n\nScores:\n- Opportunity score: 7311.000 (normalised: 0.099)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.009\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.10) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.15) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.07) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.15, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.16,\noutlet proximity (normalised): 0.07.\n\nRecommended market penetration action for POR_009: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Portland",
+      "ed_id": "POR_009",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0093
+    }
+  },
+  {
+    "content": "Enumeration District ST _002 \u2014 St Thomas Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 720,900 residents per sq km density.\n\nScores:\n- Opportunity score: 7209.000 (normalised: 0.098)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.010\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.10) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.38) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.38, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.07,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _002: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Thomas",
+      "ed_id": "ST _002",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0103
+    }
+  },
+  {
+    "content": "Enumeration District TRE_010 \u2014 Trelawny Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 716,500 residents per sq km density.\n\nScores:\n- Opportunity score: 7165.000 (normalised: 0.097)\n- Propensity to buy: 0.000 (normalised: 0.000)\n- Combined priority score: 0.005\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.10) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.29) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.29, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.08,\noutlet proximity (normalised): 0.36.\n\nRecommended market penetration action for TRE_010: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Trelawny",
+      "ed_id": "TRE_010",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0049
+    }
+  },
+  {
+    "content": "Enumeration District TRE_002 \u2014 Trelawny Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 714,700 residents per sq km density.\n\nScores:\n- Opportunity score: 7147.000 (normalised: 0.097)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.007\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.10) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.09) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.09, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.18,\noutlet proximity (normalised): 0.36.\n\nRecommended market penetration action for TRE_002: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Trelawny",
+      "ed_id": "TRE_002",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.007
+    }
+  },
+  {
+    "content": "Enumeration District ST _006 \u2014 St Andrew Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,757 residents per sq km density.\n\nScores:\n- Opportunity score: 7016.228 (normalised: 0.095)\n- Propensity to buy: 0.001 (normalised: 0.087)\n- Combined priority score: 0.091\n- Action quadrant: Strike Now\n\nReasoning: both opportunity (0.10) and propensity (0.09) are above median \u2014 promotions and advertising will yield immediate returns.\n\nKey feature drivers: lower household income (index 0.56) \u2014 price sensitivity is a factor; poor road access (score 0.12) limits product reach; high competitor density (10.84) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.56, road score: 0.12,\ncompetitor density: 10.84, payday index: 0.30,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _006: Strike Now.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Andrew",
+      "ed_id": "ST _006",
+      "action_quadrant": "Strike Now",
+      "priority_score": 0.0911
+    }
+  },
+  {
+    "content": "Enumeration District TRE_003 \u2014 Trelawny Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 699,300 residents per sq km density.\n\nScores:\n- Opportunity score: 6993.000 (normalised: 0.095)\n- Propensity to buy: 0.000 (normalised: 0.000)\n- Combined priority score: 0.006\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.09) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.27) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.27, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.13,\noutlet proximity (normalised): 0.36.\n\nRecommended market penetration action for TRE_003: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Trelawny",
+      "ed_id": "TRE_003",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0055
+    }
+  },
+  {
+    "content": "Enumeration District TRE_001 \u2014 Trelawny Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 691,100 residents per sq km density.\n\nScores:\n- Opportunity score: 6911.000 (normalised: 0.094)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.010\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.09) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.24) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.24, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.09,\noutlet proximity (normalised): 0.36.\n\nRecommended market penetration action for TRE_001: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Trelawny",
+      "ed_id": "TRE_001",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0097
+    }
+  },
+  {
+    "content": "Enumeration District POR_005 \u2014 Portland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 689,400 residents per sq km density.\n\nScores:\n- Opportunity score: 6894.000 (normalised: 0.093)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.008\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.09) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.22) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.07) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.22, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.14,\noutlet proximity (normalised): 0.07.\n\nRecommended market penetration action for POR_005: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Portland",
+      "ed_id": "POR_005",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0083
+    }
+  },
+  {
+    "content": "Enumeration District POR_006 \u2014 Portland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 672,500 residents per sq km density.\n\nScores:\n- Opportunity score: 6725.000 (normalised: 0.091)\n- Propensity to buy: 0.000 (normalised: 0.002)\n- Combined priority score: 0.012\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.09) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.00) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.07) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.00, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.16,\noutlet proximity (normalised): 0.07.\n\nRecommended market penetration action for POR_006: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Portland",
+      "ed_id": "POR_006",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0119
+    }
+  },
+  {
+    "content": "Enumeration District POR_002 \u2014 Portland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 669,100 residents per sq km density.\n\nScores:\n- Opportunity score: 6691.000 (normalised: 0.091)\n- Propensity to buy: 0.000 (normalised: 0.004)\n- Combined priority score: 0.020\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.09) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.11) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.07) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.11, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.09,\noutlet proximity (normalised): 0.07.\n\nRecommended market penetration action for POR_002: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Portland",
+      "ed_id": "POR_002",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.02
+    }
+  },
+  {
+    "content": "Enumeration District HAN_000 \u2014 Hanover Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 664,600 residents per sq km density.\n\nScores:\n- Opportunity score: 6646.000 (normalised: 0.090)\n- Propensity to buy: 0.000 (normalised: 0.000)\n- Combined priority score: 0.000\n- Action quadrant: Expand Access\n\nReasoning: opportunity is high (0.09) but propensity is below median (0.00) \u2014 distribution expansion should precede promotions.\n\nKey feature drivers: lower household income (index 0.29) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.21) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.29, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.18,\noutlet proximity (normalised): 0.21.\n\nRecommended market penetration action for HAN_000: Expand Access.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Hanover",
+      "ed_id": "HAN_000",
+      "action_quadrant": "Expand Access",
+      "priority_score": 0.0
+    }
+  },
+  {
+    "content": "Enumeration District HAN_002 \u2014 Hanover Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 663,000 residents per sq km density.\n\nScores:\n- Opportunity score: 6630.000 (normalised: 0.090)\n- Propensity to buy: 0.000 (normalised: 0.004)\n- Combined priority score: 0.020\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.09) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.10) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.21) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.10, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.08,\noutlet proximity (normalised): 0.21.\n\nRecommended market penetration action for HAN_002: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Hanover",
+      "ed_id": "HAN_002",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0199
+    }
+  },
+  {
+    "content": "Enumeration District TRE_009 \u2014 Trelawny Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 660,600 residents per sq km density.\n\nScores:\n- Opportunity score: 6606.000 (normalised: 0.090)\n- Propensity to buy: 0.000 (normalised: 0.000)\n- Combined priority score: 0.005\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.09) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.40) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.40, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.08,\noutlet proximity (normalised): 0.36.\n\nRecommended market penetration action for TRE_009: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Trelawny",
+      "ed_id": "TRE_009",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0052
+    }
+  },
+  {
+    "content": "Enumeration District POR_001 \u2014 Portland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 660,000 residents per sq km density.\n\nScores:\n- Opportunity score: 6600.000 (normalised: 0.089)\n- Propensity to buy: 0.000 (normalised: 0.003)\n- Combined priority score: 0.015\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.09) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.07) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.07) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.07, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.11,\noutlet proximity (normalised): 0.07.\n\nRecommended market penetration action for POR_001: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Portland",
+      "ed_id": "POR_001",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.015
+    }
+  },
+  {
+    "content": "Enumeration District TRE_000 \u2014 Trelawny Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 658,600 residents per sq km density.\n\nScores:\n- Opportunity score: 6586.000 (normalised: 0.089)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.007\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.09) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.18) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.18, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.13,\noutlet proximity (normalised): 0.36.\n\nRecommended market penetration action for TRE_000: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Trelawny",
+      "ed_id": "TRE_000",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0069
+    }
+  },
+  {
+    "content": "Enumeration District ST _008 \u2014 St Thomas Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 655,200 residents per sq km density.\n\nScores:\n- Opportunity score: 6552.000 (normalised: 0.089)\n- Propensity to buy: 0.000 (normalised: 0.003)\n- Combined priority score: 0.018\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.09) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.09) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.09, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.08,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _008: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Thomas",
+      "ed_id": "ST _008",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0176
+    }
+  },
+  {
+    "content": "Enumeration District ST _000 \u2014 St Thomas Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 646,200 residents per sq km density.\n\nScores:\n- Opportunity score: 6462.000 (normalised: 0.088)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.010\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.09) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.47) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.47, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.05,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _000: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Thomas",
+      "ed_id": "ST _000",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0104
+    }
+  },
+  {
+    "content": "Enumeration District TRE_008 \u2014 Trelawny Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 643,800 residents per sq km density.\n\nScores:\n- Opportunity score: 6438.000 (normalised: 0.087)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.011\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.09) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.18) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.18, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.08,\noutlet proximity (normalised): 0.36.\n\nRecommended market penetration action for TRE_008: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Trelawny",
+      "ed_id": "TRE_008",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0114
+    }
+  },
+  {
+    "content": "Enumeration District HAN_006 \u2014 Hanover Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 639,700 residents per sq km density.\n\nScores:\n- Opportunity score: 6397.000 (normalised: 0.087)\n- Propensity to buy: 0.000 (normalised: 0.002)\n- Combined priority score: 0.013\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.09) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.10) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.21) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.10, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.13,\noutlet proximity (normalised): 0.21.\n\nRecommended market penetration action for HAN_006: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Hanover",
+      "ed_id": "HAN_006",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.013
+    }
+  },
+  {
+    "content": "Enumeration District TRE_006 \u2014 Trelawny Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 623,900 residents per sq km density.\n\nScores:\n- Opportunity score: 6239.000 (normalised: 0.085)\n- Propensity to buy: 0.000 (normalised: 0.000)\n- Combined priority score: 0.005\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.08) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.23) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.23, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.15,\noutlet proximity (normalised): 0.36.\n\nRecommended market penetration action for TRE_006: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Trelawny",
+      "ed_id": "TRE_006",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0046
+    }
+  },
+  {
+    "content": "Enumeration District TRE_005 \u2014 Trelawny Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 613,100 residents per sq km density.\n\nScores:\n- Opportunity score: 6131.000 (normalised: 0.083)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.009\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.08) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.23) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.23, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.12,\noutlet proximity (normalised): 0.36.\n\nRecommended market penetration action for TRE_005: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Trelawny",
+      "ed_id": "TRE_005",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0089
+    }
+  },
+  {
+    "content": "Enumeration District POR_000 \u2014 Portland Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 591,900 residents per sq km density.\n\nScores:\n- Opportunity score: 5919.000 (normalised: 0.080)\n- Propensity to buy: 0.000 (normalised: 0.002)\n- Combined priority score: 0.012\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.08) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.31) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.07) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.31, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.26,\noutlet proximity (normalised): 0.07.\n\nRecommended market penetration action for POR_000: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Portland",
+      "ed_id": "POR_000",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0123
+    }
+  },
+  {
+    "content": "Enumeration District HAN_007 \u2014 Hanover Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 580,000 residents per sq km density.\n\nScores:\n- Opportunity score: 5800.000 (normalised: 0.079)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.008\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.08) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.26) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.21) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.26, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.15,\noutlet proximity (normalised): 0.21.\n\nRecommended market penetration action for HAN_007: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Hanover",
+      "ed_id": "HAN_007",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0075
+    }
+  },
+  {
+    "content": "Enumeration District HAN_001 \u2014 Hanover Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 576,800 residents per sq km density.\n\nScores:\n- Opportunity score: 5768.000 (normalised: 0.078)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.009\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.08) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.58) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.21) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.58, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.08,\noutlet proximity (normalised): 0.21.\n\nRecommended market penetration action for HAN_001: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Hanover",
+      "ed_id": "HAN_001",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0089
+    }
+  },
+  {
+    "content": "Enumeration District HAN_005 \u2014 Hanover Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 574,600 residents per sq km density.\n\nScores:\n- Opportunity score: 5746.000 (normalised: 0.078)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.008\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.08) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.28) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.21) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.28, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.12,\noutlet proximity (normalised): 0.21.\n\nRecommended market penetration action for HAN_005: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Hanover",
+      "ed_id": "HAN_005",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0076
+    }
+  },
+  {
+    "content": "Enumeration District ST _001 \u2014 St Catherine Parish.\n\nMarket penetration index: 0.4%.\nED status classification: Underserved.\nPopulation: approximately 350 residents per sq km density.\n\nScores:\n- Opportunity score: 5743.925 (normalised: 0.078)\n- Propensity to buy: 0.000 (normalised: 0.030)\n- Combined priority score: 0.048\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.03) but opportunity gap is smaller (0.08) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.34) \u2014 price sensitivity is a factor; poor road access (score 0.22) limits product reach; high competitor density (5.41) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.34, road score: 0.22,\ncompetitor density: 5.41, payday index: 0.27,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _001: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Catherine",
+      "ed_id": "ST _001",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0485
+    }
+  },
+  {
+    "content": "Enumeration District HAN_009 \u2014 Hanover Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 546,800 residents per sq km density.\n\nScores:\n- Opportunity score: 5468.000 (normalised: 0.074)\n- Propensity to buy: 0.000 (normalised: 0.000)\n- Combined priority score: 0.003\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.07) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.28) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.21) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.28, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.15,\noutlet proximity (normalised): 0.21.\n\nRecommended market penetration action for HAN_009: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Hanover",
+      "ed_id": "HAN_009",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0029
+    }
+  },
+  {
+    "content": "Enumeration District HAN_010 \u2014 Hanover Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 542,300 residents per sq km density.\n\nScores:\n- Opportunity score: 5423.000 (normalised: 0.073)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.008\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.07) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.16) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.21) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.16, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.16,\noutlet proximity (normalised): 0.21.\n\nRecommended market penetration action for HAN_010: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Hanover",
+      "ed_id": "HAN_010",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0078
+    }
+  },
+  {
+    "content": "Enumeration District HAN_004 \u2014 Hanover Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 538,700 residents per sq km density.\n\nScores:\n- Opportunity score: 5387.000 (normalised: 0.073)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.008\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.07) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.15) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.21) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.15, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.15,\noutlet proximity (normalised): 0.21.\n\nRecommended market penetration action for HAN_004: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Hanover",
+      "ed_id": "HAN_004",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.008
+    }
+  },
+  {
+    "content": "Enumeration District HAN_011 \u2014 Hanover Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 536,700 residents per sq km density.\n\nScores:\n- Opportunity score: 5367.000 (normalised: 0.073)\n- Propensity to buy: 0.000 (normalised: 0.002)\n- Combined priority score: 0.013\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.07) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.15) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.21) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.15, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.09,\noutlet proximity (normalised): 0.21.\n\nRecommended market penetration action for HAN_011: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Hanover",
+      "ed_id": "HAN_011",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0134
+    }
+  },
+  {
+    "content": "Enumeration District TRE_007 \u2014 Trelawny Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 520,700 residents per sq km density.\n\nScores:\n- Opportunity score: 5207.000 (normalised: 0.071)\n- Propensity to buy: 0.000 (normalised: 0.007)\n- Combined priority score: 0.022\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.01) but opportunity gap is smaller (0.07) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.01) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.01, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.20,\noutlet proximity (normalised): 0.36.\n\nRecommended market penetration action for TRE_007: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Trelawny",
+      "ed_id": "TRE_007",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0224
+    }
+  },
+  {
+    "content": "Enumeration District TRE_004 \u2014 Trelawny Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 508,400 residents per sq km density.\n\nScores:\n- Opportunity score: 5084.000 (normalised: 0.069)\n- Propensity to buy: 0.000 (normalised: 0.001)\n- Combined priority score: 0.006\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.07) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.04) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.04, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.18,\noutlet proximity (normalised): 0.36.\n\nRecommended market penetration action for TRE_004: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Trelawny",
+      "ed_id": "TRE_004",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0064
+    }
+  },
+  {
+    "content": "Enumeration District HAN_008 \u2014 Hanover Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 498,600 residents per sq km density.\n\nScores:\n- Opportunity score: 4986.000 (normalised: 0.068)\n- Propensity to buy: 0.000 (normalised: 0.004)\n- Combined priority score: 0.017\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.07) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.12) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.21) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.12, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.12,\noutlet proximity (normalised): 0.21.\n\nRecommended market penetration action for HAN_008: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Hanover",
+      "ed_id": "HAN_008",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0169
+    }
+  },
+  {
+    "content": "Enumeration District HAN_003 \u2014 Hanover Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 497,200 residents per sq km density.\n\nScores:\n- Opportunity score: 4972.000 (normalised: 0.067)\n- Propensity to buy: 0.000 (normalised: 0.004)\n- Combined priority score: 0.017\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.07) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.11) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; far from nearest outlet (normalised distance 0.21) \u2014 brand exposure is low.\n\nFeature values \u2014 income index: 0.11, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.10,\noutlet proximity (normalised): 0.21.\n\nRecommended market penetration action for HAN_003: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Hanover",
+      "ed_id": "HAN_003",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0168
+    }
+  },
+  {
+    "content": "Enumeration District KIN_011 \u2014 Kingston Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,520 residents per sq km density.\n\nScores:\n- Opportunity score: 4672.000 (normalised: 0.063)\n- Propensity to buy: 0.000 (normalised: 0.012)\n- Combined priority score: 0.028\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.01) but opportunity gap is smaller (0.06) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.22) \u2014 price sensitivity is a factor; poor road access (score 0.15) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.22, road score: 0.15,\ncompetitor density: 0.00, payday index: 0.39,\noutlet proximity (normalised): 0.63.\n\nRecommended market penetration action for KIN_011: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Kingston",
+      "ed_id": "KIN_011",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0278
+    }
+  },
+  {
+    "content": "Enumeration District KIN_001 \u2014 Kingston Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 199,408 residents per sq km density.\n\nScores:\n- Opportunity score: 4633.000 (normalised: 0.063)\n- Propensity to buy: 0.000 (normalised: 0.002)\n- Combined priority score: 0.011\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.06) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: poor road access (score 0.00) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.62, road score: 0.00,\ncompetitor density: 0.00, payday index: 0.35,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for KIN_001: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Kingston",
+      "ed_id": "KIN_001",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0114
+    }
+  },
+  {
+    "content": "Enumeration District KIN_003 \u2014 Kingston Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 3,294 residents per sq km density.\n\nScores:\n- Opportunity score: 4539.000 (normalised: 0.061)\n- Propensity to buy: 0.000 (normalised: 0.010)\n- Combined priority score: 0.025\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.01) but opportunity gap is smaller (0.06) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.54) \u2014 price sensitivity is a factor; poor road access (score 0.38) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.54, road score: 0.38,\ncompetitor density: 0.00, payday index: 0.30,\noutlet proximity (normalised): 0.65.\n\nRecommended market penetration action for KIN_003: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Kingston",
+      "ed_id": "KIN_003",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0251
+    }
+  },
+  {
+    "content": "Enumeration District KIN_010 \u2014 Kingston Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 3,624 residents per sq km density.\n\nScores:\n- Opportunity score: 4465.000 (normalised: 0.060)\n- Propensity to buy: 0.000 (normalised: 0.004)\n- Combined priority score: 0.015\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.06) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: lower household income (index 0.29) \u2014 price sensitivity is a factor; poor road access (score 0.22) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.29, road score: 0.22,\ncompetitor density: 0.00, payday index: 0.40,\noutlet proximity (normalised): 0.59.\n\nRecommended market penetration action for KIN_010: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Kingston",
+      "ed_id": "KIN_010",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.015
+    }
+  },
+  {
+    "content": "Enumeration District KIN_006 \u2014 Kingston Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,468 residents per sq km density.\n\nScores:\n- Opportunity score: 4168.000 (normalised: 0.056)\n- Propensity to buy: 0.000 (normalised: 0.007)\n- Combined priority score: 0.020\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.01) but opportunity gap is smaller (0.06) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.81, road score: 0.41,\ncompetitor density: 0.00, payday index: 0.34,\noutlet proximity (normalised): 0.62.\n\nRecommended market penetration action for KIN_006: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Kingston",
+      "ed_id": "KIN_006",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0195
+    }
+  },
+  {
+    "content": "Enumeration District KIN_009 \u2014 Kingston Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 14,034 residents per sq km density.\n\nScores:\n- Opportunity score: 4166.000 (normalised: 0.056)\n- Propensity to buy: 0.000 (normalised: 0.020)\n- Combined priority score: 0.034\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.02) but opportunity gap is smaller (0.06) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.26) \u2014 price sensitivity is a factor; strong road access (score 0.72) means the product is physically reachable; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.26, road score: 0.72,\ncompetitor density: 0.00, payday index: 0.46,\noutlet proximity (normalised): 0.57.\n\nRecommended market penetration action for KIN_009: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Kingston",
+      "ed_id": "KIN_009",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0337
+    }
+  },
+  {
+    "content": "Enumeration District ST _009 \u2014 St Catherine Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 626 residents per sq km density.\n\nScores:\n- Opportunity score: 4162.923 (normalised: 0.056)\n- Propensity to buy: 0.002 (normalised: 0.176)\n- Combined priority score: 0.099\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.18) but opportunity gap is smaller (0.06) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.23) \u2014 price sensitivity is a factor; high competitor density (9.32) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.23, road score: 0.41,\ncompetitor density: 9.32, payday index: 0.08,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _009: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Catherine",
+      "ed_id": "ST _009",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0995
+    }
+  },
+  {
+    "content": "Enumeration District ST _010 \u2014 St James Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 2,252,100 residents per sq km density.\n\nScores:\n- Opportunity score: 4139.661 (normalised: 0.056)\n- Propensity to buy: 0.001 (normalised: 0.092)\n- Combined priority score: 0.072\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.09) but opportunity gap is smaller (0.06) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.22) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; high competitor density (4.44) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.22, road score: 0.00,\ncompetitor density: 4.44, payday index: 0.26,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _010: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St James",
+      "ed_id": "ST _010",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0717
+    }
+  },
+  {
+    "content": "Enumeration District KIN_002 \u2014 Kingston Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 14,567 residents per sq km density.\n\nScores:\n- Opportunity score: 4064.000 (normalised: 0.055)\n- Propensity to buy: 0.000 (normalised: 0.034)\n- Combined priority score: 0.043\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.03) but opportunity gap is smaller (0.06) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.43) \u2014 price sensitivity is a factor; poor road access (score 0.02) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers; close proximity to an existing outlet (normalised distance 0.77) increases brand exposure.\n\nFeature values \u2014 income index: 0.43, road score: 0.02,\ncompetitor density: 0.00, payday index: 0.32,\noutlet proximity (normalised): 0.77.\n\nRecommended market penetration action for KIN_002: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Kingston",
+      "ed_id": "KIN_002",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0431
+    }
+  },
+  {
+    "content": "Enumeration District ST _005 \u2014 St James Parish.\n\nMarket penetration index: 2.5%.\nED status classification: Underserved.\nPopulation: approximately 2,196,100 residents per sq km density.\n\nScores:\n- Opportunity score: 3857.189 (normalised: 0.052)\n- Propensity to buy: 0.000 (normalised: 0.009)\n- Combined priority score: 0.021\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.01) but opportunity gap is smaller (0.05) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: poor road access (score 0.00) limits product reach; high competitor density (4.55) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.63, road score: 0.00,\ncompetitor density: 4.55, payday index: 0.15,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _005: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St James",
+      "ed_id": "ST _005",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0214
+    }
+  },
+  {
+    "content": "Enumeration District KIN_008 \u2014 Kingston Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 703 residents per sq km density.\n\nScores:\n- Opportunity score: 3780.000 (normalised: 0.051)\n- Propensity to buy: 0.000 (normalised: 0.031)\n- Combined priority score: 0.040\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.03) but opportunity gap is smaller (0.05) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.85, road score: 0.44,\ncompetitor density: 0.00, payday index: 0.37,\noutlet proximity (normalised): 0.69.\n\nRecommended market penetration action for KIN_008: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Kingston",
+      "ed_id": "KIN_008",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0399
+    }
+  },
+  {
+    "content": "Enumeration District KIN_000 \u2014 Kingston Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 1,883 residents per sq km density.\n\nScores:\n- Opportunity score: 3460.000 (normalised: 0.047)\n- Propensity to buy: 0.000 (normalised: 0.006)\n- Combined priority score: 0.016\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.01) but opportunity gap is smaller (0.05) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.31) \u2014 price sensitivity is a factor; poor road access (score 0.28) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.31, road score: 0.28,\ncompetitor density: 0.00, payday index: 0.49,\noutlet proximity (normalised): 0.69.\n\nRecommended market penetration action for KIN_000: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Kingston",
+      "ed_id": "KIN_000",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0161
+    }
+  },
+  {
+    "content": "Enumeration District KIN_007 \u2014 Kingston Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 11,007 residents per sq km density.\n\nScores:\n- Opportunity score: 3453.000 (normalised: 0.047)\n- Propensity to buy: 0.000 (normalised: 0.004)\n- Combined priority score: 0.014\n- Action quadrant: Deprioritise\n\nReasoning: both opportunity (0.05) and propensity (0.00) are below median \u2014 resources are better deployed elsewhere.\n\nKey feature drivers: poor road access (score 0.34) limits product reach; low competitor density (0.00) \u2014 limited alternatives for consumers.\n\nFeature values \u2014 income index: 0.65, road score: 0.34,\ncompetitor density: 0.00, payday index: 0.29,\noutlet proximity (normalised): 0.69.\n\nRecommended market penetration action for KIN_007: Deprioritise.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Kingston",
+      "ed_id": "KIN_007",
+      "action_quadrant": "Deprioritise",
+      "priority_score": 0.0142
+    }
+  },
+  {
+    "content": "Enumeration District ST _003 \u2014 St Catherine Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 511 residents per sq km density.\n\nScores:\n- Opportunity score: 2681.122 (normalised: 0.036)\n- Propensity to buy: 0.002 (normalised: 0.237)\n- Combined priority score: 0.093\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.24) but opportunity gap is smaller (0.04) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.26) \u2014 price sensitivity is a factor; poor road access (score 0.30) limits product reach; high competitor density (16.78) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.26, road score: 0.30,\ncompetitor density: 16.78, payday index: 0.30,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _003: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Catherine",
+      "ed_id": "ST _003",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0927
+    }
+  },
+  {
+    "content": "Enumeration District ST _004 \u2014 St Andrew Parish.\n\nMarket penetration index: 0.3%.\nED status classification: Underserved.\nPopulation: approximately 975 residents per sq km density.\n\nScores:\n- Opportunity score: 2680.126 (normalised: 0.036)\n- Propensity to buy: 0.001 (normalised: 0.054)\n- Combined priority score: 0.044\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.05) but opportunity gap is smaller (0.04) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.44) \u2014 price sensitivity is a factor; strong road access (score 0.71) means the product is physically reachable; high competitor density (22.32) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.44, road score: 0.71,\ncompetitor density: 22.32, payday index: 0.41,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _004: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Andrew",
+      "ed_id": "ST _004",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0442
+    }
+  },
+  {
+    "content": "Enumeration District ST _007 \u2014 St Andrew Parish.\n\nMarket penetration index: 0.2%.\nED status classification: Underserved.\nPopulation: approximately 1,023 residents per sq km density.\n\nScores:\n- Opportunity score: 2254.613 (normalised: 0.030)\n- Propensity to buy: 0.001 (normalised: 0.051)\n- Combined priority score: 0.039\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.05) but opportunity gap is smaller (0.03) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.41) \u2014 price sensitivity is a factor; poor road access (score 0.37) limits product reach; high competitor density (24.40) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.41, road score: 0.37,\ncompetitor density: 24.40, payday index: 0.38,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _007: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Andrew",
+      "ed_id": "ST _007",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0392
+    }
+  },
+  {
+    "content": "Enumeration District ST _001 \u2014 St James Parish.\n\nMarket penetration index: 0.7%.\nED status classification: Underserved.\nPopulation: approximately 2,159,700 residents per sq km density.\n\nScores:\n- Opportunity score: 2089.265 (normalised: 0.028)\n- Propensity to buy: 0.000 (normalised: 0.016)\n- Combined priority score: 0.021\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.02) but opportunity gap is smaller (0.03) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.15) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; high competitor density (9.26) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.15, road score: 0.00,\ncompetitor density: 9.26, payday index: 0.17,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _001: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St James",
+      "ed_id": "ST _001",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0213
+    }
+  },
+  {
+    "content": "Enumeration District ST _006 \u2014 St Catherine Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 266 residents per sq km density.\n\nScores:\n- Opportunity score: 1556.718 (normalised: 0.021)\n- Propensity to buy: 0.002 (normalised: 0.181)\n- Combined priority score: 0.062\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.18) but opportunity gap is smaller (0.02) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.39) \u2014 price sensitivity is a factor; poor road access (score 0.14) limits product reach; high competitor density (23.55) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.39, road score: 0.14,\ncompetitor density: 23.55, payday index: 0.24,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _006: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Catherine",
+      "ed_id": "ST _006",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0617
+    }
+  },
+  {
+    "content": "Enumeration District ST _009 \u2014 St James Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 2,538,000 residents per sq km density.\n\nScores:\n- Opportunity score: 1514.280 (normalised: 0.020)\n- Propensity to buy: 0.000 (normalised: 0.020)\n- Combined priority score: 0.020\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.02) but opportunity gap is smaller (0.02) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.36) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; high competitor density (15.76) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.36, road score: 0.00,\ncompetitor density: 15.76, payday index: 0.31,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _009: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St James",
+      "ed_id": "ST _009",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0205
+    }
+  },
+  {
+    "content": "Enumeration District ST _004 \u2014 St Catherine Parish.\n\nMarket penetration index: 0.4%.\nED status classification: Underserved.\nPopulation: approximately 303 residents per sq km density.\n\nScores:\n- Opportunity score: 1473.398 (normalised: 0.020)\n- Propensity to buy: 0.002 (normalised: 0.200)\n- Combined priority score: 0.063\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.20) but opportunity gap is smaller (0.02) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.60) \u2014 price sensitivity is a factor; poor road access (score 0.21) limits product reach; high competitor density (30.26) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.60, road score: 0.21,\ncompetitor density: 30.26, payday index: 0.24,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _004: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Catherine",
+      "ed_id": "ST _004",
+      "action_quadrant": "Retain",
+      "priority_score": 0.063
+    }
+  },
+  {
+    "content": "Enumeration District ST _007 \u2014 St Catherine Parish.\n\nMarket penetration index: 0.2%.\nED status classification: Underserved.\nPopulation: approximately 283 residents per sq km density.\n\nScores:\n- Opportunity score: 1288.543 (normalised: 0.017)\n- Propensity to buy: 0.001 (normalised: 0.052)\n- Combined priority score: 0.030\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.05) but opportunity gap is smaller (0.02) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: strong road access (score 0.74) means the product is physically reachable; high competitor density (32.43) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.74, road score: 0.74,\ncompetitor density: 32.43, payday index: 0.26,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _007: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Catherine",
+      "ed_id": "ST _007",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0301
+    }
+  },
+  {
+    "content": "Enumeration District ST _010 \u2014 St Thomas Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 890,700 residents per sq km density.\n\nScores:\n- Opportunity score: 809.727 (normalised: 0.011)\n- Propensity to buy: 0.000 (normalised: 0.046)\n- Combined priority score: 0.022\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.05) but opportunity gap is smaller (0.01) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.10) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; high competitor density (10.00) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.10, road score: 0.00,\ncompetitor density: 10.00, payday index: 0.15,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _010: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Thomas",
+      "ed_id": "ST _010",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0224
+    }
+  },
+  {
+    "content": "Enumeration District ST _005 \u2014 St Thomas Parish.\n\nMarket penetration index: 6.3%.\nED status classification: Underserved.\nPopulation: approximately 860,400 residents per sq km density.\n\nScores:\n- Opportunity score: 733.091 (normalised: 0.010)\n- Propensity to buy: 0.010 (normalised: 1.000)\n- Combined priority score: 0.099\n- Action quadrant: Retain\n\nReasoning: propensity is high (1.00) but opportunity gap is smaller (0.01) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.11) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; high competitor density (10.00) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.11, road score: 0.00,\ncompetitor density: 10.00, payday index: 0.17,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _005: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Thomas",
+      "ed_id": "ST _005",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0991
+    }
+  },
+  {
+    "content": "Enumeration District ST _006 \u2014 St James Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 2,480,200 residents per sq km density.\n\nScores:\n- Opportunity score: 665.158 (normalised: 0.009)\n- Propensity to buy: 0.000 (normalised: 0.019)\n- Combined priority score: 0.013\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.02) but opportunity gap is smaller (0.01) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.31) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; high competitor density (36.29) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.31, road score: 0.00,\ncompetitor density: 36.29, payday index: 0.28,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _006: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St James",
+      "ed_id": "ST _006",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0129
+    }
+  },
+  {
+    "content": "Enumeration District ST _003 \u2014 St James Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 2,124,300 residents per sq km density.\n\nScores:\n- Opportunity score: 549.490 (normalised: 0.007)\n- Propensity to buy: 0.000 (normalised: 0.023)\n- Combined priority score: 0.013\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.02) but opportunity gap is smaller (0.01) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.39) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; high competitor density (37.66) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.39, road score: 0.00,\ncompetitor density: 37.66, payday index: 0.29,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _003: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St James",
+      "ed_id": "ST _003",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0129
+    }
+  },
+  {
+    "content": "Enumeration District ST _001 \u2014 St Thomas Parish.\n\nMarket penetration index: 1.8%.\nED status classification: Underserved.\nPopulation: approximately 910,600 residents per sq km density.\n\nScores:\n- Opportunity score: 426.000 (normalised: 0.006)\n- Propensity to buy: 0.001 (normalised: 0.106)\n- Combined priority score: 0.024\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.11) but opportunity gap is smaller (0.01) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.25) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; high competitor density (20.00) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.25, road score: 0.00,\ncompetitor density: 20.00, payday index: 0.11,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _001: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Thomas",
+      "ed_id": "ST _001",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0245
+    }
+  },
+  {
+    "content": "Enumeration District ST _004 \u2014 St James Parish.\n\nMarket penetration index: 0.9%.\nED status classification: Underserved.\nPopulation: approximately 2,289,300 residents per sq km density.\n\nScores:\n- Opportunity score: 365.109 (normalised: 0.005)\n- Propensity to buy: 0.000 (normalised: 0.006)\n- Combined priority score: 0.005\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.01) but opportunity gap is smaller (0.00) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.31) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; high competitor density (61.15) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.31, road score: 0.00,\ncompetitor density: 61.15, payday index: 0.14,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _004: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St James",
+      "ed_id": "ST _004",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0052
+    }
+  },
+  {
+    "content": "Enumeration District ST _007 \u2014 St James Parish.\n\nMarket penetration index: 0.5%.\nED status classification: Underserved.\nPopulation: approximately 2,212,300 residents per sq km density.\n\nScores:\n- Opportunity score: 342.597 (normalised: 0.005)\n- Propensity to buy: 0.000 (normalised: 0.029)\n- Combined priority score: 0.012\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.03) but opportunity gap is smaller (0.00) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.31) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; high competitor density (63.28) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.31, road score: 0.00,\ncompetitor density: 63.28, payday index: 0.23,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _007: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St James",
+      "ed_id": "ST _007",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0115
+    }
+  },
+  {
+    "content": "Enumeration District ST _009 \u2014 St Thomas Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 746,400 residents per sq km density.\n\nScores:\n- Opportunity score: 182.049 (normalised: 0.002)\n- Propensity to buy: 0.000 (normalised: 0.029)\n- Combined priority score: 0.008\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.03) but opportunity gap is smaller (0.00) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.10) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; high competitor density (40.00) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.10, road score: 0.00,\ncompetitor density: 40.00, payday index: 0.05,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _009: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Thomas",
+      "ed_id": "ST _009",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0083
+    }
+  },
+  {
+    "content": "Enumeration District KIN_004 \u2014 Kingston Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 7,992 residents per sq km density.\n\nScores:\n- Opportunity score: 121.049 (normalised: 0.002)\n- Propensity to buy: 0.000 (normalised: 0.036)\n- Combined priority score: 0.007\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.04) but opportunity gap is smaller (0.00) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: poor road access (score 0.31) limits product reach; high competitor density (40.00) suppresses conversion; close proximity to an existing outlet (normalised distance 0.72) increases brand exposure.\n\nFeature values \u2014 income index: 0.81, road score: 0.31,\ncompetitor density: 40.00, payday index: 0.30,\noutlet proximity (normalised): 0.72.\n\nRecommended market penetration action for KIN_004: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Kingston",
+      "ed_id": "KIN_004",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0074
+    }
+  },
+  {
+    "content": "Enumeration District ST _003 \u2014 St Thomas Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 783,900 residents per sq km density.\n\nScores:\n- Opportunity score: 96.778 (normalised: 0.001)\n- Propensity to buy: 0.000 (normalised: 0.035)\n- Combined priority score: 0.006\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.04) but opportunity gap is smaller (0.00) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.11) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; high competitor density (80.00) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.11, road score: 0.00,\ncompetitor density: 80.00, payday index: 0.10,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _003: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Thomas",
+      "ed_id": "ST _003",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0065
+    }
+  },
+  {
+    "content": "Enumeration District ST _006 \u2014 St Thomas Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 679,900 residents per sq km density.\n\nScores:\n- Opportunity score: 74.714 (normalised: 0.001)\n- Propensity to buy: 0.000 (normalised: 0.013)\n- Combined priority score: 0.003\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.01) but opportunity gap is smaller (0.00) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.07) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; high competitor density (90.00) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.07, road score: 0.00,\ncompetitor density: 90.00, payday index: 0.06,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _006: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Thomas",
+      "ed_id": "ST _006",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0034
+    }
+  },
+  {
+    "content": "Enumeration District ST _004 \u2014 St Thomas Parish.\n\nMarket penetration index: 2.3%.\nED status classification: Underserved.\nPopulation: approximately 885,600 residents per sq km density.\n\nScores:\n- Opportunity score: 61.390 (normalised: 0.001)\n- Propensity to buy: 0.001 (normalised: 0.144)\n- Combined priority score: 0.010\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.14) but opportunity gap is smaller (0.00) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.20) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; high competitor density (140.00) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.20, road score: 0.00,\ncompetitor density: 140.00, payday index: 0.09,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _004: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Thomas",
+      "ed_id": "ST _004",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0101
+    }
+  },
+  {
+    "content": "Enumeration District ST _007 \u2014 St Thomas Parish.\n\nMarket penetration index: 1.2%.\nED status classification: Underserved.\nPopulation: approximately 841,900 residents per sq km density.\n\nScores:\n- Opportunity score: 59.000 (normalised: 0.001)\n- Propensity to buy: 0.003 (normalised: 0.283)\n- Combined priority score: 0.014\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.28) but opportunity gap is smaller (0.00) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.14) \u2014 price sensitivity is a factor; poor road access (score 0.00) limits product reach; high competitor density (140.00) suppresses conversion; close proximity to an existing outlet (normalised distance 0.71) increases brand exposure.\n\nFeature values \u2014 income index: 0.14, road score: 0.00,\ncompetitor density: 140.00, payday index: 0.15,\noutlet proximity (normalised): 0.71.\n\nRecommended market penetration action for ST _007: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "St Thomas",
+      "ed_id": "ST _007",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0138
+    }
+  },
+  {
+    "content": "Enumeration District KIN_005 \u2014 Kingston Parish.\n\nMarket penetration index: 0.0%.\nED status classification: Underserved.\nPopulation: approximately 771 residents per sq km density.\n\nScores:\n- Opportunity score: 9.592 (normalised: 0.000)\n- Propensity to buy: 0.001 (normalised: 0.087)\n- Combined priority score: 0.000\n- Action quadrant: Retain\n\nReasoning: propensity is high (0.09) but opportunity gap is smaller (0.00) \u2014 focus on loyalty and usage increase for existing customers.\n\nKey feature drivers: lower household income (index 0.56) \u2014 price sensitivity is a factor; poor road access (score 0.35) limits product reach; high competitor density (440.00) suppresses conversion; close proximity to an existing outlet (normalised distance 0.75) increases brand exposure.\n\nFeature values \u2014 income index: 0.56, road score: 0.35,\ncompetitor density: 440.00, payday index: 0.38,\noutlet proximity (normalised): 0.75.\n\nRecommended market penetration action for KIN_005: Retain.",
+    "metadata": {
+      "doc_type": "ed_detail",
+      "parish": "Kingston",
+      "ed_id": "KIN_005",
+      "action_quadrant": "Retain",
+      "priority_score": 0.0
+    }
+  },
+  {
+    "content": "Outlet Recommendation \u2014 Manchester Parish.\n\nRecommended location coordinates: (18.0410\u00b0N, -77.5130\u00b0W).\nRecommended store type: Supermarket.\nParish: Manchester.\n\nSite score: nan.\nPenetration index of surrounding area: nan%.\nEstimated population coverage: 1327600+ households within catchment.\nNearest existing outlet distance: 49.1 km.\n\nOpening an outlet at this location would improve product availability and brand\nvisibility, directly increasing the distribution and brand_proxy scores for\nsurrounding EDs \u2014 upgrading them from 'Expand Access' toward 'Strike Now' status.",
+    "metadata": {
+      "doc_type": "outlet_recommendation",
+      "parish": "Manchester",
+      "ed_id": "ALL"
+    }
+  },
+  {
+    "content": "Outlet Recommendation \u2014 Clarendon Parish.\n\nRecommended location coordinates: (17.9680\u00b0N, -77.2450\u00b0W).\nRecommended store type: Supermarket.\nParish: Clarendon.\n\nSite score: nan.\nPenetration index of surrounding area: nan%.\nEstimated population coverage: 1327600+ households within catchment.\nNearest existing outlet distance: 21.4 km.\n\nOpening an outlet at this location would improve product availability and brand\nvisibility, directly increasing the distribution and brand_proxy scores for\nsurrounding EDs \u2014 upgrading them from 'Expand Access' toward 'Strike Now' status.",
+    "metadata": {
+      "doc_type": "outlet_recommendation",
+      "parish": "Clarendon",
+      "ed_id": "ALL"
+    }
+  },
+  {
+    "content": "Outlet Recommendation \u2014 St Ann Parish.\n\nRecommended location coordinates: (18.4070\u00b0N, -77.1050\u00b0W).\nRecommended store type: Supermarket.\nParish: St Ann.\n\nSite score: nan.\nPenetration index of surrounding area: nan%.\nEstimated population coverage: 1327600+ households within catchment.\nNearest existing outlet distance: 41.4 km.\n\nOpening an outlet at this location would improve product availability and brand\nvisibility, directly increasing the distribution and brand_proxy scores for\nsurrounding EDs \u2014 upgrading them from 'Expand Access' toward 'Strike Now' status.",
+    "metadata": {
+      "doc_type": "outlet_recommendation",
+      "parish": "St Ann",
+      "ed_id": "ALL"
+    }
+  }
+]

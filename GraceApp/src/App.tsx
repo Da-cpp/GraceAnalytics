@@ -3,6 +3,7 @@ import { supabase } from './supabaseClient';
 import Auth from './components/Auth';
 import ApprovalList from './components/ApprovalList';
 import ReactMarkdown from 'react-markdown';
+import GeospatialMetrics from './components/GeospatialMetrics';
 
 function App() {
   const [session, setSession] = useState<any>(null);
@@ -10,8 +11,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState('');
   const [chatLog, setChatLog] = useState<{user: string, bot: string}[]>([]);
-  const [activeTab, setActiveTab] = useState<'ai' | 'admin'>('ai');
-  
+  const [activeTab, setActiveTab] = useState<'ai' | 'admin' | 'metrics'>('ai');  
 
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
@@ -130,6 +130,15 @@ function App() {
             >
               INTELLIGENCE
             </button>
+
+            {/* NEW METRICS TAB BUTTON */}
+            <button 
+              onClick={() => setActiveTab('metrics')}
+              className={`px-6 py-2 rounded-lg text-xs font-bold transition-all duration-300 ${activeTab === 'metrics' ? 'bg-white text-grace-red shadow-md scale-105' : 'text-gray-500 hover:text-gray-700'}`}
+            >
+              GEOSPATIAL METRICS
+            </button>
+
             {['manager', 'ceo'].includes(profile.role) && (
               <button 
                 onClick={() => setActiveTab('admin')}
@@ -275,6 +284,10 @@ function App() {
                 <ApprovalList />
              </div>
           </div>
+        )}
+
+        {activeTab === 'metrics' && (
+          <GeospatialMetrics />
         )}
       </main>
 
