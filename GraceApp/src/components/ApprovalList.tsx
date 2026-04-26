@@ -15,12 +15,10 @@ export default function ApprovalList() {
   }
 
   async function approveUser(id: string, role: string) {
-    // Set local state to trigger a "leaving" animation immediately for better UX
     setIsDeleting(id);
     
     const { error } = await supabase.from('profiles').update({ is_approved: true, role }).eq('id', id);
     if (!error) {
-        // Wait briefly for the animation to finish before refreshing list
         setTimeout(() => {
             fetchPending();
             setIsDeleting(null);

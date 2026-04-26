@@ -12,17 +12,12 @@ from .nodes import (
 from .edges import create_grade_documents, route_after_agent
 
 
-# =========================
-# STATE (FIXED)
-# =========================
+
 class GraphState(TypedDict):
     messages: Annotated[list, add_messages]
-    retrieved_docs: list   # 🔥 IMPORTANT FIX
+    retrieved_docs: list  
 
 
-# =========================
-# BUILD GRAPH
-# =========================
 def build_graph(tools):
     workflow = StateGraph(GraphState)
 
@@ -34,20 +29,33 @@ def build_graph(tools):
     tool_node = ToolNode(tools)
 
 
-    def retrieve_node(state):
+    # def retrieve_node(state):
 
-        result = tool_node.invoke(state)
+    #     result = tool_node.invoke(state)
 
  
+    #     last_msg = result["messages"][-1]
+
+    #     return {
+    #         "messages": result["messages"],
+           
+    #         "retrieved_docs": last_msg.artifact 
+    #     }
+    
+    def retrieve_node(state):
+        result = tool_node.invoke(state)
         last_msg = result["messages"][-1]
+
+        retrieved_content = []
+        if hasattr(last_msg, 'artifact') and last_msg.artifact:
+            retrieved_content = last_msg.artifact
+        else:
+            retrieved_content = [last_msg.content] 
 
         return {
             "messages": result["messages"],
-           
-            "retrieved_docs": last_msg.artifact 
+            "retrieved_docs": retrieved_content 
         }
-    
-    
 
     workflow.add_node("agent", agent_node)
     workflow.add_node("retrieve", retrieve_node)

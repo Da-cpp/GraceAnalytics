@@ -4,7 +4,47 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.tools import Tool
 from .config import get_embeddings
 import os
+import json
+from datetime import datetime
 
+def get_model_context():
+    current_file_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(current_file_dir, "media", "rag_documents.json")
+    with open(json_path, 'r') as f:
+        return json.load(f)
+
+def get_propensity_tool():
+    def query_model(query: str):
+        data = get_model_context()
+        today = datetime.now()
+        
+
+        query_clean = query.lower().replace(".", "")
+        relevant_data = []
+        
+        for item in data:
+            parish_in_json = item.get('metadata', {}).get('parish', '').lower().replace(".", "")
+            if parish_in_json in query_clean or query_clean in parish_in_json:
+                relevant_data.append(item)
+
+       
+        is_payday_period = 25 <= today.day <= 31 or 1 <= today.day <= 2
+        payday_context = "CRITICAL: Today is in the PEAK PAYDAY period. Propensity is boosted." if is_payday_period else ""
+
+        if not relevant_data:
+            return {"error": "No specific data found for that region.", "payday": payday_context}
+
+        return {
+            "payday_alert": payday_context,
+            "data": relevant_data,
+            "timestamp": today.strftime("%B %d, %Y")
+        }
+
+    return Tool(
+        name="query_propensity_model",
+        func=query_model,
+        description="Query the model for parish-level stats like St Andrew, Kingston, etc."
+    )
 
 def ingest_documents(file_paths: list[str]):
     all_docs = []

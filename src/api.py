@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from langchain_core.messages import HumanMessage
 from .agents.graph import build_graph
-from .retriever import ingest_documents, get_retriever_tool
+from .retriever import ingest_documents, get_retriever_tool, get_propensity_tool
 
 app = FastAPI(title="Grace Intelligence API")
 
@@ -24,9 +24,11 @@ pdf_path = os.path.join(current_file_dir, "media", "GK25split.pdf")
 print("🚀 API: Ingesting documents...")
 vectorstore = ingest_documents([pdf_path])
 retriever_tool = get_retriever_tool(vectorstore)
-graph = build_graph([retriever_tool])
-print("✅ API: System Ready.")
+propensity_tool = get_propensity_tool()
 
+graph = build_graph([retriever_tool, propensity_tool])
+
+print("✅ API: System Ready.")
 
 class ChatQuery(BaseModel):
     text: str
