@@ -4,6 +4,7 @@ import Auth from './components/Auth';
 import ApprovalList from './components/ApprovalList';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import CustomerMap from './components/CustomerMap';
 
 const SpecialInsights = ({ content }: { content: string }) => {
   const isPayday = content.includes("PEAK PAYDAY") || content.includes("payday sensitivity");
@@ -49,7 +50,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState('');
   const [chatLog, setChatLog] = useState<{user: string, bot: string}[]>([]);
-  const [activeTab, setActiveTab] = useState<'ai' | 'admin' | 'metrics'>('ai');  
+  const [activeTab, setActiveTab] = useState<'ai' | 'admin' | 'map'>('ai');  
 
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
@@ -167,6 +168,12 @@ function App() {
             >
               INTELLIGENCE
             </button>
+            <button 
+              onClick={() => setActiveTab('map')}
+              className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${activeTab === 'map' ? 'bg-white text-grace-red shadow-md' : 'text-gray-500 hover:text-gray-700'}`}
+            >
+              JAMAICA METRICS
+            </button>
             {['manager', 'ceo'].includes(profile.role) && (
               <button 
                 onClick={() => setActiveTab('admin')}
@@ -179,11 +186,42 @@ function App() {
         </div>
 
         <div className="flex items-center">
-            <div className="text-right hidden md:block mr-4">
+          <div className="relative group flex items-center gap-3 pl-4 border-l border-gray-100">
+            
+            <div className="text-right hidden md:block">
               <p className="text-xs font-black text-gray-900 leading-none">{profile.full_name}</p>
               <p className="text-[9px] text-grace-red font-bold uppercase tracking-tighter mt-1">{profile.role}</p>
             </div>
-            <button onClick={() => supabase.auth.signOut()} className="text-[10px] font-bold text-gray-400 hover:text-grace-red">LOG OUT</button>
+
+            <button className="flex items-center gap-2 p-1 rounded-full hover:bg-gray-50 transition-all group-hover:ring-4 ring-gray-50">
+              <div className="w-9 h-9 bg-gray-900 rounded-full flex items-center justify-center text-white text-[10px] font-black border-2 border-white shadow-sm overflow-hidden">
+                {profile.full_name?.split(' ').map((n: string) => n[0]).join('')}
+              </div>
+              
+              <svg className="w-3 h-3 text-gray-400 group-hover:text-gray-600 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <div className="absolute right-0 top-full mt-2 w-48 bg-white border border-gray-100 shadow-xl rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[100] origin-top-right scale-95 group-hover:scale-100">
+              <div className="p-2">
+                <div className="px-4 py-3 border-b border-gray-50 md:hidden">
+                  <p className="text-xs font-black text-gray-900 leading-none">{profile.full_name}</p>
+                  <p className="text-[9px] text-grace-red font-bold uppercase mt-1">{profile.role}</p>
+                </div>
+                
+                <button 
+                  onClick={() => supabase.auth.signOut()}
+                  className="w-full text-left px-4 py-3 text-[11px] font-bold text-gray-400 hover:text-grace-red hover:bg-red-50 rounded-xl transition-all flex items-center justify-between group/item"
+                >
+               LOG OUT
+                  <svg className="w-4 h-4 opacity-0 group-hover/item:opacity-100 transition-all -translate-x-2 group-hover/item:translate-x-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -258,6 +296,12 @@ function App() {
                 </div>
               </div>
             </div>
+          </div>
+        )}
+
+        {activeTab === 'map' && (
+          <div className="bg-white rounded-3xl border border-gray-200 shadow-xl p-8">
+            <CustomerMap />
           </div>
         )}
 
