@@ -157,7 +157,7 @@ function App() {
       <header className="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center sticky top-0 z-50 shadow-sm">
         <div className="flex items-center gap-6">
           <div>
-            <h1 className="text-2xl font-black text-grace-red tracking-tighter leading-none">GK Analytics</h1>
+            <h1 className="text-2xl font-black text-grace-red tracking-tighter leading-none">GK-IQ</h1>
             <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-1">Enterprise Division 2026</p>
           </div>
           
@@ -244,11 +244,11 @@ function App() {
               </div>
             </div>
 
-            <div className="lg:col-span-2 bg-white rounded-3xl border border-gray-200 shadow-2xl overflow-hidden flex flex-col h-[650px]">
+            <div className="lg:col-span-2 bg-white rounded-3xl border border-gray-200 shadow-2xl overflow-hidden flex flex-col h-[450px]">
               <div className="bg-gray-900 p-4 flex justify-between items-center">
                  <h3 className="text-white font-bold text-xs tracking-widest uppercase px-2 flex items-center gap-2">
                   <span className="w-2 h-2 bg-grace-red rounded-full animate-ping"></span>
-                  Propensity Intelligence Terminal
+                  Intelligence Terminal
                  </h3>
                  <span className="text-[9px] bg-white/10 text-white/50 px-2 py-1 rounded font-mono">MODEL-XG-01</span>
               </div>

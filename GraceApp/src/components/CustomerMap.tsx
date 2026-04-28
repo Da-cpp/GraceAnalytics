@@ -1,10 +1,9 @@
 import React from 'react';
 
 const CustomerMap: React.FC = () => {
-  // Defining the container style explicitly for TypeScript
   const containerStyle: React.CSSProperties = {
     width: '100%',
-    height: '500px',
+    height: '400px',
     marginBottom: '20px'
   };
 
@@ -23,7 +22,7 @@ const CustomerMap: React.FC = () => {
         height="100%" 
         style={iframeStyle}
         title="GK Customer Map"
-        sandbox="allow-scripts allow-same-origin" // Good for security with Folium maps
+        sandbox="allow-scripts allow-same-origin" 
       />
     </div>
   );

@@ -71,13 +71,13 @@
 <body>
     
     
-<div style="position: fixed; bottom: 30px; left: 30px; z-index: 9999; background: white; padding: 10px 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-family: Arial; font-size: 12px; line-height: 1.6;">
+<!-- <div style="position: fixed; bottom: 30px; left: 30px; z-index: 9999; background: white; padding: 10px 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-family: Arial; font-size: 12px; line-height: 1.6;">
 <b style="font-size:13px;">Clusters</b><br>
 <span style="display:inline-block;width:10px;height:10px;background:#1b9e77;border-radius:2px;"></span> Cluster 0<br>
 <span style="display:inline-block;width:10px;height:10px;background:#d95f02;border-radius:2px;"></span> Cluster 1<br>
 <span style="display:inline-block;width:10px;height:10px;background:#7570b3;border-radius:2px;"></span> Cluster 2<br>
 <span style="display:inline-block;width:10px;height:10px;background:#e7298a;border-radius:2px;"></span> Cluster 3<br>
-</div>
+</div> -->
     
             <div class="folium-map" id="map_a76cc519019a7c64adaee2fd0e5097ae" ></div>
         
@@ -204,13 +204,14 @@
     color_map_d3ff0f8e9cf8580d6e5e35d166b55b03.xAxis = d3.svg.axis()
         .scale(color_map_d3ff0f8e9cf8580d6e5e35d166b55b03.x)
         .orient("top")
-        .tickSize(1)
-        .tickValues([17.0, 55.833333333333336, 94.66666666666667, 133.5, 172.33333333333334, 211.16666666666669, 250.0]);
-
+        .tickSize(0)
+        .tickValues([null, null, null,null, null, null, null]);
+    
+    
     color_map_d3ff0f8e9cf8580d6e5e35d166b55b03.svg = d3.select(".legend.leaflet-control").append("svg")
         .attr("id", 'legend')
-        .attr("width", 450)
-        .attr("height", 40);
+        .attr("width", 0)
+        .attr("height", 0);
 
     color_map_d3ff0f8e9cf8580d6e5e35d166b55b03.g = color_map_d3ff0f8e9cf8580d6e5e35d166b55b03.svg.append("g")
         .attr("class", "key")
@@ -326,8 +327,8 @@
 
     color_map_5047298bc79b05acd7db1d5fe3980943.svg = d3.select(".legend.leaflet-control").append("svg")
         .attr("id", 'legend')
-        .attr("width", 450)
-        .attr("height", 40);
+        .attr("width", 0)
+        .attr("height", 0);
 
     color_map_5047298bc79b05acd7db1d5fe3980943.g = color_map_5047298bc79b05acd7db1d5fe3980943.svg.append("g")
         .attr("class", "key")
@@ -438,8 +439,8 @@
 
     color_map_1a596884e39d6eb8ef913a05ee0e3780.svg = d3.select(".legend.leaflet-control").append("svg")
         .attr("id", 'legend')
-        .attr("width", 450)
-        .attr("height", 40);
+        .attr("width", 0)
+        .attr("height", 0);
 
     color_map_1a596884e39d6eb8ef913a05ee0e3780.g = color_map_1a596884e39d6eb8ef913a05ee0e3780.svg.append("g")
         .attr("class", "key")
@@ -550,8 +551,8 @@
 
     color_map_f08bb28cd454ac53279ac99fc062f3e2.svg = d3.select(".legend.leaflet-control").append("svg")
         .attr("id", 'legend')
-        .attr("width", 450)
-        .attr("height", 40);
+        .attr("width", 0)
+        .attr("height", 0);
 
     color_map_f08bb28cd454ac53279ac99fc062f3e2.g = color_map_f08bb28cd454ac53279ac99fc062f3e2.svg.append("g")
         .attr("class", "key")
@@ -646,13 +647,13 @@
     
             var layer_control_321095f5d5cee3459afab2d881f06424_layers = {
                 base_layers : {
-                    "cartodbpositron" : tile_layer_a82844b4a8856248e44e4f1c49ebf150,
+                    // "cartodbpositron" : tile_layer_a82844b4a8856248e44e4f1c49ebf150,
                 },
                 overlays :  {
-                    "Cluster 0" : choropleth_6073cee8a366aa900bb4998a2d2dd448,
-                    "Cluster 1" : choropleth_6d5ec41477be76d3ba8280517db98b7b,
-                    "Cluster 2" : choropleth_7b2a49cc30ac571b32d38b4595fa4ef4,
-                    "Cluster 3" : choropleth_a79a42a770fc11b6ae7957f00f3842fe,
+                    "High Spenders (Older)" : choropleth_6073cee8a366aa900bb4998a2d2dd448,
+                    "Low Spenders (Older)" : choropleth_6d5ec41477be76d3ba8280517db98b7b,
+                    "Avg. Spenders(Moderate Aged)" : choropleth_7b2a49cc30ac571b32d38b4595fa4ef4,
+                    "Low Spenders (Younger)" : choropleth_a79a42a770fc11b6ae7957f00f3842fe,
                     "Parish Borders" : geo_json_e2d02d38d28c6d50b50c44c48f4d1c80,
                 },
             };
