@@ -5,6 +5,14 @@ import ApprovalList from './components/ApprovalList';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import CustomerMap from './components/CustomerMap';
+import PredictionSidebar from './components/PredictionSidebar';
+
+interface PredictionFeatures {
+  customer_footfall: number;
+  store_type: 'Pharmacy' | 'Supermarket' | 'Wholesale/Chinese';
+  normal_price_jmd: number;
+  avg_unit_price_jmd: number;
+}
 
 const SpecialInsights = ({ content }: { content: string }) => {
   const isPayday = content.includes("PEAK PAYDAY") || content.includes("payday sensitivity");
@@ -52,6 +60,10 @@ function App() {
   const [chatLog, setChatLog] = useState<{user: string, bot: string}[]>([]);
   const [activeTab, setActiveTab] = useState<'ai' | 'admin' | 'map'>('ai');  
 
+  // NEW: Prediction states
+  const [prediction, setPrediction] = useState<number | null>(null);
+  const [isPredicting, setIsPredicting] = useState(false);
+
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -93,6 +105,27 @@ function App() {
       setLoading(false);
     }
   }
+
+  // NEW: Handle Sidebar prediction calls
+  const handleSidebarChange = async (values: PredictionFeatures) => {
+    setIsPredicting(true);
+    try {
+      const response = await fetch('http://localhost:8000/predict', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) throw new Error("Prediction API Failed");
+
+      const data = await response.json();
+      setPrediction(data.prediction);
+    } catch (error) {
+      console.error("Prediction Error:", error);
+    } finally {
+      setIsPredicting(false);
+    }
+  };
 
   const handleAskAI = async () => {
     if (!query.trim()) return;
@@ -238,13 +271,31 @@ function App() {
                 </div>
               </div>
 
+              {/* NEW: LIVE PREDICTION RESULT CARD */}
+              <div className="bg-white p-6 rounded-2xl border-t-4 border-t-blue-600 border-gray-200 shadow-lg">
+                <h3 className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2">Live Sales Estimate</h3>
+                <div className={`text-3xl font-black transition-all ${isPredicting ? 'opacity-30' : 'text-gray-900'}`}>
+                  {prediction !== null 
+                    ? `J$${prediction.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` 
+                    : "---"}
+                </div>
+                {isPredicting && <div className="text-[9px] text-blue-600 font-bold animate-pulse mt-1">RECALCULATING...</div>}
+                <div className="mt-4">
+                  <PredictionSidebar 
+  onUpdate={handleSidebarChange} 
+  prediction={prediction}        // Add this
+  isPredicting={isPredicting}    // Add this
+/>
+                </div>
+              </div>
+
               <div className="bg-grace-red p-6 rounded-2xl shadow-xl text-white">
                 <h3 className="text-xs font-black text-white/60 uppercase tracking-widest mb-2">Strategy 2026</h3>
                 <p className="text-lg font-bold leading-tight italic">"Advancing Jamaica's productivity through AI-driven logistics."</p>
               </div>
             </div>
 
-            <div className="lg:col-span-2 bg-white rounded-3xl border border-gray-200 shadow-2xl overflow-hidden flex flex-col h-[450px]">
+            <div className="lg:col-span-2 bg-white rounded-3xl border border-gray-200 shadow-2xl overflow-hidden flex flex-col h-[550px]">
               <div className="bg-gray-900 p-4 flex justify-between items-center">
                  <h3 className="text-white font-bold text-xs tracking-widest uppercase px-2 flex items-center gap-2">
                   <span className="w-2 h-2 bg-grace-red rounded-full animate-ping"></span>
