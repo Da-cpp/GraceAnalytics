@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import joblib
 import os
+import random
 
 class GKSalesPredictor:
     def __init__(self, model_path):
