@@ -36,7 +36,7 @@ export default function Auth() {
         <div className="p-10">
           <div className="mb-10">
             <h1 className="text-2xl font-black tracking-tighter text-gray-900 flex items-center gap-2">
-              <span className="text-[#E21F26]">GK Analytics</span>
+              <span className="text-[#E21F26]">GK-IQ</span>
               <span className="font-light text-gray-400">|</span> 
               Portal
             </h1>

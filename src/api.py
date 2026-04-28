@@ -68,14 +68,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from langchain_core.messages import HumanMessage
 
-# Your existing RAG imports
 from .agents.graph import build_graph
 from .retriever import ingest_documents, get_retriever_tool, get_propensity_tool
 
-# --- 1. SALES PREDICTOR LOGIC ---
 class GKSalesPredictor:
     def __init__(self, model_path):
-        # Load the unified model object
         saved_obj = joblib.load(model_path)
         self.model = saved_obj.model
         self.scaler = saved_obj.scaler
@@ -83,13 +80,10 @@ class GKSalesPredictor:
 
     def predict(self, X_input):
         X_p = X_input.copy()
-        # Scale numerical features before prediction
         X_p[self.numeric_features] = self.scaler.transform(X_p[self.numeric_features])
         log_preds = self.model.predict(X_p)
-        # Convert from log-space to actual JMD
         return np.expm1(log_preds)
 
-# --- 2. INITIALIZATION & PATHS ---
 app = FastAPI(title="Grace Intelligence Unified API")
 
 app.add_middleware(
@@ -102,22 +96,18 @@ app.add_middleware(
 
 current_file_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Setup Sales Predictor
 model_path = os.path.join(current_file_dir, "unified_gk_sales_model.joblib")
 predictor = GKSalesPredictor(model_path)
 
-# Setup RAG Agent
-pdf_path = os.path.join(current_file_dir, "media", "GK25split.pdf")
+pdf_path = os.path.join(current_file_dir, "media", "GK25split2.pdf")
 
 print("🚀 API: Ingesting documents...")
 vectorstore = ingest_documents([pdf_path])
 retriever_tool = get_retriever_tool(vectorstore)
 propensity_tool = get_propensity_tool()
 
-# The graph now has access to your retriever and propensity tools
 graph = build_graph([retriever_tool, propensity_tool])
 
-# Template for standardizing incoming slider data
 raw_data_template = {
     'store_id': 3012, 'date': '15/09/2023', 'month': 9, 'day_of_week': 5, 
     'parish': 'St. James', 'sku_category': 'Personal Care', 'store_open': 1,
@@ -130,7 +120,6 @@ raw_data_template = {
 
 print("✅ API: Grace Intelligence System Ready.")
 
-# --- 3. MODELS (Schemas) ---
 class SidebarInputs(BaseModel):
     customer_footfall: int
     store_type: str
@@ -140,7 +129,6 @@ class SidebarInputs(BaseModel):
 class ChatQuery(BaseModel):
     text: str
 
-# --- 4. FEATURE PREPARATION HELPER ---
 def prepare_full_features(input_df):
     X = input_df.copy() 
     X['date'] = pd.to_datetime(X['date'], dayfirst=True)
@@ -165,7 +153,6 @@ def prepare_full_features(input_df):
             
     return X[model_features]
 
-# --- 5. ENDPOINTS ---
 
 @app.post("/predict")
 async def get_prediction(data: SidebarInputs):
@@ -175,7 +162,6 @@ async def get_prediction(data: SidebarInputs):
         inc = data.dict()
         full_row.update(inc)
 
-        # High-Intensity Variability Injection
         f_norm = inc['customer_footfall'] / 5000.0
         full_row['is_christmas_season'] = 1 if f_norm > 0.7 else 0
         full_row['promo_active'] = 1 if inc['avg_unit_price_jmd'] < inc['normal_price_jmd'] else 0
@@ -185,7 +171,6 @@ async def get_prediction(data: SidebarInputs):
         final_input = prepare_full_features(df)
         base_prediction = float(predictor.predict(final_input)[0])
 
-        # Drastic Scaling Multipliers
         drastic_multiplier = 0.2 + (f_norm ** 2) * 3.8
         price_ratio = inc['avg_unit_price_jmd'] / inc['normal_price_jmd']
         price_sensitivity = (1.0 / price_ratio) ** 1.5

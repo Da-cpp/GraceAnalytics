@@ -9,7 +9,7 @@ def main():
 
     current_file_dir = os.path.dirname(os.path.abspath(__file__))
 
-    pdf_path = os.path.join(current_file_dir, "media", "GK25split.pdf")
+    pdf_path = os.path.join(current_file_dir, "media", "GK25split2.pdf")
     if not os.path.exists(pdf_path):
         print(f"❌ ERROR: Could not find the file at: {pdf_path}")
         print("Please ensure the 'media' folder is in the project root.")

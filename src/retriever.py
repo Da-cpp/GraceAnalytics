@@ -96,19 +96,16 @@ def get_retriever_tool(vectorstore):
 def format_docs(docs):
     if not docs or not isinstance(docs, list):
         return "No documents retrieved."
-        
-    formatted = []
-    for i, d in enumerate(docs):
 
+    formatted = []
+
+    for i, d in enumerate(docs, start=1):
         source = d.metadata.get('source', 'GraceKennedy_Internal')
-        
         page = d.metadata.get('page', 0)
         actual_page = page + 1 if isinstance(page, int) else '?'
-        
-        content = f"--- [Document {i+1}] ---\n"
-        content += f"SOURCE: {source}\n"
-        content += f"PAGE: {actual_page}\n"
-        content += f"CONTENT: {d.page_content}\n"
+
+        content = f"[{i}] {source}, Page {actual_page}:\n{d.page_content}"
+
         formatted.append(content)
 
     return "\n\n".join(formatted)
