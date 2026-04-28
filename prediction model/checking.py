@@ -1,65 +1,102 @@
+import pandas as pd
+import numpy as np
 import joblib
 import os
-import numpy as np
-import pandas as pd
-# This gets the directory where checking.py is actually located
-base_path = os.path.dirname(os.path.abspath(__file__))
-model_path = os.path.join(base_path, 'gk_customer_segmentation_model.joblib')
 
-sample_customer = {
-    "age": 34,
-    "weekly_household_income_jmd": 45000,
-    "num_children_under_12": 2,
-    "num_teens_at_home": 0,
-    "months_as_gk_customer": 24,
-    "days_since_last_purchase": 5,
-    "mnt_tinned_meats_monthly_jmd": 3500,
-    "mnt_baked_goods_monthly_jmd": 2000,
-    "mnt_gk_juices_monthly_jmd": 1500,
-    "mnt_saltfish_tinned_fish_monthly_jmd": 4000,
-    "mnt_fresh_produce_monthly_jmd": 8000,
-    "mnt_cooking_oil_monthly_jmd": 1200,
-    "buys_gk_ketchup": 1, # Yes
-    "buys_festival_dumpling_mix": 1,
-    "num_supermarket_visits_monthly": 4,
-    "num_market_vendor_visits_monthly": 2,
-    "num_promo_purchases_monthly": 1,
-    "uses_route_taxi": 1,
-    "has_refrigerator": 1,
-    "responded_to_gk_promo_tv": 0,
-    "responded_to_gk_promo_radio": 1,
-    "responded_to_gk_promo_social": 1,
-    "gk_brand_loyalty_score": 85,
-    "filed_complaint": 0, 
-    "education_encoded": 2, # e.g., Tertiary
-    "marital_status_Married": 1, "marital_status_Separated": 0, "marital_status_Single": 0,
-    "preferred_cooking_oil_Grace": 1, "preferred_cooking_oil_Mazola": 0, "preferred_cooking_oil_Other/Generic": 0,
-    "parish_Kingston": 0, "parish_Manchester": 0, "parish_Other": 0, "parish_St. Andrew": 1, "parish_St. Catherine": 0, "parish_St. Elizabeth": 0, "parish_St. James": 0,
-    "shopping_location_type_Corner Shop": 0, "shopping_location_type_Market/Higglar": 0, "shopping_location_type_Mixed": 0, "shopping_location_type_Supermarket": 1, "shopping_location_type_Wholesale/Chinese Shop": 0
+class GKSalesPredictor:
+    def __init__(self, model_path):
+        saved_obj = joblib.load(model_path)
+        self.model = saved_obj.model
+        self.scaler = saved_obj.scaler
+        self.numeric_features = saved_obj.numeric_features
+
+    def predict(self, X_input):
+        X_p = X_input.copy()
+        X_p[self.numeric_features] = self.scaler.transform(X_p[self.numeric_features])
+        log_preds = self.model.predict(X_p)
+        return np.expm1(log_preds)
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "unified_gk_sales_model.joblib")
+
+predictor = GKSalesPredictor(model_path)
+
+raw_data = {
+    'store_id': 3012,
+    'date': '15/09/2023',
+    'month': 9,
+    'day_of_week': 5, 
+    'parish': 'St. James',
+    'store_type': 'Pharmacy',
+    'sku_category': 'Personal Care',
+    'store_open': 1,
+    'near_transport_hub': 0,
+    'competitor_nearby': 1,
+    'normal_price_jmd': 850.50,
+    'avg_unit_price_jmd': 850.50,
+    'promo_active': 0,
+    'promo_type': 'None',
+    'is_christmas_season': 0,
+    'is_easter_week': 0,
+    'is_carnival_season': 0,
+    'is_back_to_school': 0,
+    'school_holiday': 0,
+    'jamaica_public_holiday': 0,
+    'holiday_name': 'None',
+    'is_hurricane_season': 1,
+    'weekly_rainfall_mm': 45.8,
+    'customer_footfall': 850
 }
 
-data = joblib.load(model_path)
-
-test_df = pd.DataFrame([sample_customer])
-
-# ... after your data = joblib.load(...) line
-print("Model loaded successfully!")
-print(f"Type of object: {type(data)}")
-
-segment = data.predict(test_df)
-print(f"The model has assigned this customer to Segment: {segment[0]}")
-
-# If it's a Pipeline (as the warning suggests), let's see the steps
-if hasattr(data, 'named_steps'):
-    print(f"Pipeline steps: {data.named_steps.keys()}")
-
-n_clusters = data.named_steps['kmeans'].n_clusters
-print(f"This model groups customers into {n_clusters} distinct segments.")
+df = pd.DataFrame([raw_data])
 
 
+def prepare_full_features(input_df):
+    X = input_df.copy()
+    X['date'] = pd.to_datetime(X['date'], dayfirst=True)
+    
 
-feature_names = data.named_steps['scaler'].feature_names_in_
+    X['week_of_year'] = X['date'].dt.isocalendar().week.astype(int)
+    X['is_weekend'] = X['day_of_week'].apply(lambda x: 1 if x >= 5 else 0)
+    X['is_month_start'] = X['date'].dt.is_month_start.astype(int)
+    X['is_month_end'] = X['date'].dt.is_month_end.astype(int)
+    
+    # 2. SALES-BASED ENGINEERING
+    X['footfall_log'] = np.log1p(X['customer_footfall'])
+    X['discount_pct'] = (X['normal_price_jmd'] - X['avg_unit_price_jmd']) / X['normal_price_jmd']
+    X['is_discounted'] = (X['discount_pct'] > 0).astype(int)
+    
+    event_cols = ['is_christmas_season', 'is_easter_week', 'is_carnival_season', 
+                  'is_back_to_school', 'school_holiday', 'jamaica_public_holiday']
+    X['event_pressure'] = X[event_cols].sum(axis=1)
 
-# print("--- REQUIRED COLUMNS ---")
-# for i, name in enumerate(feature_names):
-#     print(f"{i+1}. {name}")
+    # 3. CATEGORICAL ENCODING (The 'Dummy' variables)
+    # This creates columns like 'parish_St. Catherine'
+    X = pd.get_dummies(X, columns=['parish', 'store_type', 'sku_category'])
+
+    # 4. ALIGN WITH TRAINING COLUMNS
+    # We must retrieve the exact list of columns the model was trained on
+    # Since we saved the predictor object, we can pull them from the model itself
+    model_features = predictor.model.feature_names_in_
+    
+    # Fill missing dummy columns with 0 (e.g., if it's not Hanover, parish_Hanover = 0)
+    for col in model_features:
+        if col not in X.columns:
+            X[col] = 0
+            
+    return X[model_features]
+
+# 6. RUN PREDICTION
+try:
+    final_input = prepare_full_features(df)
+    prediction = predictor.predict(final_input)
+    
+    print("\n" + "="*30)
+    print("--- GK SALES PREDICTION ---")
+    print(f"Store: {raw_data['store_id']} | Parish: {raw_data['parish']}")
+    print(f"Footfall: {raw_data['customer_footfall']}")
+    print(f"Prediction: J${prediction[0]:,.2f}")
+    print("="*30 + "\n")
+    
+except Exception as e:
+    print(f"\n[!] Error: {e}")
