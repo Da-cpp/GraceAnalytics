@@ -14,8 +14,63 @@ interface SidebarProps {
   isPredicting: boolean;
 }
 
+interface PredictionPreset {
+  id: string;
+  label: string;
+  hint: string;
+  values: PredictionFeatures;
+}
+
+const PRESETS: PredictionPreset[] = [
+  {
+    id: 'slow_day',
+    label: 'Slow Day',
+    hint: 'Low traffic + budget pricing',
+    values: {
+      customer_footfall: 300,
+      store_type: 'Pharmacy',
+      normal_price_jmd: 600,
+      avg_unit_price_jmd: 450,
+    },
+  },
+  {
+    id: 'standard_day',
+    label: 'Standard Day',
+    hint: 'Balanced baseline profile',
+    values: {
+      customer_footfall: 1100,
+      store_type: 'Supermarket',
+      normal_price_jmd: 2400,
+      avg_unit_price_jmd: 1750,
+    },
+  },
+  {
+    id: 'promo_push',
+    label: 'Promo Push',
+    hint: 'High traffic + lower unit price',
+    values: {
+      customer_footfall: 2800,
+      store_type: 'Supermarket',
+      normal_price_jmd: 3200,
+      avg_unit_price_jmd: 1200,
+    },
+  },
+  {
+    id: 'premium_bulk',
+    label: 'Premium Bulk',
+    hint: 'Wholesale premium pricing scenario',
+    values: {
+      customer_footfall: 4200,
+      store_type: 'Wholesale/Chinese',
+      normal_price_jmd: 9000,
+      avg_unit_price_jmd: 7600,
+    },
+  },
+];
+
 const PredictionSidebar: React.FC<SidebarProps> = ({ onUpdate, prediction, isPredicting }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [activePreset, setActivePreset] = useState<string | null>(null);
   
   const [values, setValues] = useState<PredictionFeatures>({
     customer_footfall: 850,
@@ -25,19 +80,33 @@ const PredictionSidebar: React.FC<SidebarProps> = ({ onUpdate, prediction, isPre
   });
 
   const isFirstRender = useRef(true);
+  const skipDebounceOnNextChange = useRef(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
+    setActivePreset(null);
     setValues(prev => ({
       ...prev,
       [name]: type === 'range' ? parseFloat(value) : value
     }));
   };
 
+  const applyPreset = (preset: PredictionPreset) => {
+    setActivePreset(preset.id);
+    skipDebounceOnNextChange.current = true;
+    setValues(preset.values);
+    onUpdate(preset.values);
+  };
+
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
       onUpdate(values);
+      return;
+    }
+
+    if (skipDebounceOnNextChange.current) {
+      skipDebounceOnNextChange.current = false;
       return;
     }
 
@@ -77,6 +146,30 @@ const PredictionSidebar: React.FC<SidebarProps> = ({ onUpdate, prediction, isPre
           </div>
 
           <div className="flex-1 overflow-y-auto p-6 space-y-8 bg-gray-50">
+            <div className="space-y-3">
+              <div className="flex justify-between items-end">
+                <label className="text-[10px] font-bold text-gray-500 uppercase">Quick Presets</label>
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wide">1-click scenario</span>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                {PRESETS.map((preset) => (
+                  <button
+                    key={preset.id}
+                    type="button"
+                    onClick={() => applyPreset(preset)}
+                    className={`text-left p-2 rounded-lg border transition-all ${
+                      activePreset === preset.id
+                        ? 'border-red-600 bg-red-50'
+                        : 'border-gray-200 bg-white hover:border-gray-400'
+                    }`}
+                  >
+                    <div className="text-[10px] font-black uppercase tracking-wide text-gray-800">{preset.label}</div>
+                    <div className="text-[10px] text-gray-500 mt-1 leading-tight">{preset.hint}</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div className="space-y-3">
               <div className="flex justify-between items-end">
                 <label className="text-[10px] font-bold text-gray-500 uppercase">Footfall</label>
